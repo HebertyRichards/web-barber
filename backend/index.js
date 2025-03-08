@@ -9,7 +9,10 @@ const port = 3000;
 
 app.use(express.json());
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://web-barber-phi.vercel.app"
+  );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -85,7 +88,7 @@ app.post("/agendar", (req, res) => {
               <li>${servico}</li>
             </ul>
             <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
-            <p>Para cancelar, acesse <a href="https://web-barber-xi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
+            <p>Para cancelar, acesse <a href="https://web-barber-phi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
             <p>A barbearia Web Barber-Shop agradece a preferência. Venha ficar novo de novo!</p>
           `,
         };

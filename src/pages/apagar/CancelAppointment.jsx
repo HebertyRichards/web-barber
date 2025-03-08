@@ -18,9 +18,12 @@ function CancelarAgendamento() {
     }
 
     try {
-      const response = await fetch(`#`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `web-barber-production.up.railway.app/cancelar-agendamento`,
+        {
+          method: "DELETE",
+        }
+      );
 
       const data = await response.json();
 

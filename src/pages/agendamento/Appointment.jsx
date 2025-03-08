@@ -43,11 +43,14 @@ function Agendamento() {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/agendar", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(agendamento),
-      });
+      const response = await fetch(
+        "web-barber-production.up.railway.app/agendar",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(agendamento),
+        }
+      );
 
       if (response.ok) {
         alert("Agendamento realizado com sucesso!");
