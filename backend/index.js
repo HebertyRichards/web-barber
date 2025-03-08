@@ -4,7 +4,6 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -111,6 +110,7 @@ app.post("/agendar", (req, res) => {
   );
 });
 
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
