@@ -37,6 +37,8 @@ const transport = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
+
+//rota para criar um agendamento
 app.post("/agendar", (req, res) => {
   const {
     nome_cliente,
@@ -108,6 +110,34 @@ app.post("/agendar", (req, res) => {
       }
     }
   );
+});
+
+//rota para cancelar agendamento
+app.delete("/cancelar-agendamento/:id", (req, res) => {
+  const idAgendamento = req.params.id;
+
+  if (!idAgendamento) {
+    return res
+      .status(400)
+      .json({ message: "ID do agendamento é obrigatório." });
+  }
+
+  const sql = "DELETE FROM agendamentos WHERE id_agendamento = ?";
+
+  pool.query(sql, [idAgendamento], (err, result) => {
+    if (err) {
+      console.error("Erro ao deletar agendamento:", err);
+      return res
+        .status(500)
+        .json({ message: "Erro ao cancelar o agendamento." });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Agendamento não encontrado." });
+    }
+
+    res.status(200).json({ message: "Agendamento cancelado com sucesso!" });
+  });
 });
 
 const port = process.env.PORT || 8080;
