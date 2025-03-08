@@ -7,9 +7,5 @@ export default defineConfig({
   base: "./",
   server: {
     historyApiFallback: true,
-    proxy: {
-      "/agendar": "http://localhost:3000",
-      "/cancelar-agendamento": "http://localhost:8080",
-    },
   },
 });
