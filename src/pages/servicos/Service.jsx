@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import Active from "../../header/Active";
 import Footer from "../../footer/Footer";
 
 function Servicos() {
+  useEffect(() => {
+    document.title = "Serviços - Web Barber Shop";
+  }, []);
+
   return (
     <>
       <div className="back2">

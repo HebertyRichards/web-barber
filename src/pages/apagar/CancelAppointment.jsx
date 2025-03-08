@@ -3,6 +3,10 @@ import Active from "../../header/Active";
 import Footer from "../../footer/Footer";
 
 function CancelarAgendamento() {
+  useEffect(() => {
+    document.title = "Cancelar Agendamento - Web Barber Shop";
+  }, []);
+
   const [idAgendamento, setIdAgendamento] = useState("");
   const [mensagem, setMensagem] = useState("");
 

@@ -4,6 +4,10 @@ import Footer from "../../footer/Footer";
 import "../../style.css";
 
 function Agendamento() {
+  useEffect(() => {
+    document.title = "Agendamento - Web Barber Shop";
+  }, []);
+
   const [data, setData] = useState("");
   const [telefone, setTelefone] = useState("");
   const [nome, setNome] = useState("");
@@ -39,7 +43,7 @@ function Agendamento() {
     };
 
     try {
-      const response = await fetch("#", {
+      const response = await fetch("http://localhost:3000/agendar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(agendamento),
@@ -48,10 +52,12 @@ function Agendamento() {
       if (response.ok) {
         alert("Agendamento realizado com sucesso!");
       } else {
-        alert("Erro ao agendar, tente novamente.");
+        const data = await response.json();
+        alert(data.message || "Erro ao agendar, tente novamente.");
       }
     } catch (error) {
       console.error("Erro ao enviar agendamento:", error);
+      alert("Erro ao enviar o agendamento. Tente novamente.");
     }
   };
 
