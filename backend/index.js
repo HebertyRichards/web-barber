@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const mysql = require("mysql2");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
@@ -8,14 +7,16 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://web-barber-phi.vercel.app",
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-    credentials: true,
-  })
-);
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://web-barber-phi.vercel.app"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,

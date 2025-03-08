@@ -44,7 +44,7 @@ function Agendamento() {
 
     try {
       const response = await fetch(
-        "web-barber-production.up.railway.app/agendar",
+        "https://web-barber-production.up.railway.app/agendar",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

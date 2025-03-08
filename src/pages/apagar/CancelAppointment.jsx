@@ -13,13 +13,13 @@ function CancelarAgendamento() {
   const handleCancel = async (e) => {
     e.preventDefault();
     if (!idAgendamento) {
-      setMensagem("Por favor, informe o ID do agendamento.");
+      setMensagem("Por favor, informe o ID do agendamento");
       return;
     }
 
     try {
       const response = await fetch(
-        `web-barber-production.up.railway.app/cancelar-agendamento`,
+        `https://web-barber-production.up.railway.app/cancelar-agendamento/${idAgendamento}`,
         {
           method: "DELETE",
         }
