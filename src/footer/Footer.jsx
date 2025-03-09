@@ -7,9 +7,9 @@ function Footer() {
         <div className="menu">
           <a href="index.html">Web Barber Shop</a>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
-            a beatae. Eum debitis vitae ducimus laboriosam veritatis quas
-            doloremque cum!
+            A Web Barber Shop oferece agendamento online prático e rápido.
+            Escolha o serviço, o horário e receba a confirmação por WhatsApp ou
+            e-mail. Mais comodidade, agilidade e estilo no seu dia a dia.
           </p>
         </div>
         <div className="menu2">
@@ -31,7 +31,6 @@ function Footer() {
           <div className="redes">
             <a id="facebook" href="#"></a>
             <a id="instagram" href="#"></a>
-            <a id="linkedin" href="#"></a>
           </div>
         </div>
       </footer>

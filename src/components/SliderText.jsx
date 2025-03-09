@@ -31,9 +31,8 @@ const Text = () => {
         <div className="slide">
           <h2 id="p1">Cortes profissionais</h2>
           <p id="f1">
-            Descrição relacionada ao texto, você poderá alterar essa descrição e
-            o título do texto no paínel administativo, lá tera uma opção para
-            gerenciar os recursos do site
+            Cortes modernos, clássicos ou personalizados com acabamento
+            impecável. Estilo e cuidado com quem entende do assunto.
           </p>
           <button className="contact-btn">Contate-nos</button>
         </div>
@@ -42,9 +41,8 @@ const Text = () => {
         <div className="slide">
           <h2 id="p2">Faça sua Barba</h2>
           <p id="f2">
-            Descrição relacionado ao texto, você poderá alterar essa descrição e
-            o título do texto no paínel administrativo, lá terá uma opção para
-            gerenciar os recursos do site
+            Barba feita com precisão e conforto. Higienização, hidratação e
+            modelagem para valorizar seu visual.
           </p>
           <button className="contact-btn">Contate-nos</button>
         </div>
@@ -53,9 +51,28 @@ const Text = () => {
         <div className="slide">
           <h2 id="p3">Mega Hair</h2>
           <p id="f3">
-            Descrição relacionado ao texto, você poderá alterar essa descrição e
-            o título do texto no painel administrativo, lá terá uma opção para
-            gerenciar os recursos do site.
+            Transforme seu estilo com Mega Hair de alta qualidade. Volume,
+            comprimento e naturalidade em cada aplicação.
+          </p>
+          <button className="contact-btn">Contate-nos</button>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide">
+          <h2 id="p3">Hidratação Capilar</h2>
+          <p id="f3">
+            Recupere a saúde dos seus fios com hidratação profunda. Cabelos mais
+            fortes, macios e com brilho natural.o.
+          </p>
+          <button className="contact-btn">Contate-nos</button>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide">
+          <h2 id="p3">Coloração ou Luzes Masculinas</h2>
+          <p id="f3">
+            Renove o visual com coloração ou luzes modernas. Estilo,
+            personalidade e cuidado com cada detalhe.
           </p>
           <button className="contact-btn">Contate-nos</button>
         </div>

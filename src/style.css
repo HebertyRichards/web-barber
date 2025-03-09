@@ -87,7 +87,7 @@ body,
   cursor: pointer;
   text-decoration: none;
   margin-top: 15px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Times New Roman", Times, sans-serif;
 }
 
 #mySidebar img {
@@ -309,7 +309,7 @@ button[type="submit"]:hover,
 .info-services h2,
 .back-forms h2 {
   font-size: 2.5em;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Times New Roman", Times, sans-serif;
 }
 
 .info-prods p,
@@ -592,17 +592,6 @@ footer img {
   height: 30px;
   margin: 0 10px;
 }
-
-#linkedin {
-  background-image: url("../src/assets/linkedin.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 5px;
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
-}
-
 @media (max-width: 1650px) {
   #main-swiper {
     width: 70%;
@@ -646,7 +635,6 @@ footer img {
     font-size: 1.5em;
   }
 }
-
 @media (max-width: 1366px) {
   .container a {
     font-size: 14px;

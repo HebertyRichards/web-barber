@@ -7,8 +7,11 @@ function Sobre() {
       <div className="sobre">
         <h2>Sobre Nós</h2>
         <p>
-          Texto Descritivo sobre sua barbearia de forma resumida, vocÊ poderá
-          alterar conforme for a sua necessidade e o tipo de negócio
+          A Web Barber Shop é uma empresa que une tradição e inovação para
+          facilitar o dia a dia dos nossos clientes. Oferecemos um sistema de
+          agendamento online rápido e prático, Nosso objetivo é proporcionar
+          comodidade, agilidade e uma experiência moderna, sem filas e com total
+          controle do seu tempo.
         </p>
       </div>
     </>
