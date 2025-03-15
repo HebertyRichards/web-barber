@@ -75,6 +75,16 @@ app.post("/agendar", (req, res) => {
         console.error("Erro ao inserir no banco:", err);
         return res.status(500).json({ message: "Erro ao salvar agendamento" });
       }
+
+      const dataFormatada = new Date(data_agendamento).toLocaleDateString(
+        "pt-BR",
+        {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }
+      );
+
       if (email) {
         const mailOptions = {
           from: "Barbearia Ramos <" + process.env.EMAIL_USER + ">",
@@ -82,7 +92,7 @@ app.post("/agendar", (req, res) => {
           subject: "Agendamento Confirmado!",
           html: `
             <h1>Agendamento Concluído</h1> 
-            <p>Olá ${nome_cliente}, seu agendamento foi concluído no dia ${data_agendamento} às ${horario} com o barbeiro ${barbeiro}.</p>
+            <p>Olá ${nome_cliente}, seu agendamento foi concluído no dia ${dataFormatada} às ${horario} com o barbeiro ${barbeiro}.</p>
             <p>Segue o serviço agendado:</p>
             <ul>
               <li>${servico}</li>
