@@ -76,14 +76,14 @@ app.post("/agendar", (req, res) => {
         return res.status(500).json({ message: "Erro ao salvar agendamento" });
       }
 
-      const dataFormatada = new Date(data_agendamento).toLocaleDateString(
-        "pt-BR",
-        {
+      const data = new Date(data_agendamento);
+      const dataFormatada = data
+        .toLocaleDateString("pt-BR", {
           day: "2-digit",
-          month: "long",
+          month: "2-digit",
           year: "numeric",
-        }
-      );
+        })
+        .replace(/\//g, "-");
 
       if (email) {
         const mailOptions = {
@@ -91,16 +91,15 @@ app.post("/agendar", (req, res) => {
           to: email,
           subject: "Agendamento Confirmado!",
           html: `
-            <h1>Agendamento Concluído</h1> 
-            <p>Olá ${nome_cliente}, seu agendamento foi concluído no dia ${dataFormatada} às ${horario} com o barbeiro ${barbeiro}.</p>
-            <p>Segue o serviço agendado:</p>
-            <ul>
-              <li>${servico}</li>
-            </ul>
-            <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
-            <p>Para cancelar, acesse <a href="https://web-barber-phi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
-            <p>A barbearia Ramos agradece a preferência. Venha ficar novo de novo!</p>
-          `,
+          <p>Olá ${nome_cliente}, seu agendamento foi concluído no dia <b>${dataFormatada}</b> às <b>${horario}</b> com o barbeiro <b>${barbeiro}</b>.</p>
+          <p>Segue o serviço agendado:</p>
+          <ul>
+            <li>${servico}</li>
+          </ul>
+          <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
+          <p>Para cancelar, acesse <a href="https://web-barber-phi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
+          <p>A barbearia Ramos agradece a preferência. Venha ficar novo de novo!</p>
+        `,
         };
         transport.sendMail(mailOptions, (error, info) => {
           if (error) {
