@@ -77,7 +77,7 @@ app.post("/agendar", (req, res) => {
       }
       if (email) {
         const mailOptions = {
-          from: "Web Barber-Shop <" + process.env.EMAIL_USER + ">",
+          from: "Barbearia Ramos <" + process.env.EMAIL_USER + ">",
           to: email,
           subject: "Agendamento Confirmado!",
           html: `
@@ -89,7 +89,7 @@ app.post("/agendar", (req, res) => {
             </ul>
             <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
             <p>Para cancelar, acesse <a href="https://web-barber-phi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
-            <p>A barbearia Web Barber-Shop agradece a preferência. Venha ficar novo de novo!</p>
+            <p>A barbearia Ramos agradece a preferência. Venha ficar novo de novo!</p>
           `,
         };
         transport.sendMail(mailOptions, (error, info) => {

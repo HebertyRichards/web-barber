@@ -4,7 +4,7 @@ import Footer from "../../footer/Footer";
 
 function Produtos() {
   useEffect(() => {
-    document.title = "Produtos - Web Barber Shop";
+    document.title = "Produtos - Barbearia Ramos";
   }, []);
 
   return (

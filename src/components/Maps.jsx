@@ -12,7 +12,7 @@ function Mapa() {
       <div className="maps">
         <h2>Estamos nessa localização</h2>
       </div>
-      <MapContainer center={position} zoom={15}>
+      <MapContainer center={position} zoom={14}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={position}>
           <Popup>

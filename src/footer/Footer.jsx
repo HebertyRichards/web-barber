@@ -5,9 +5,9 @@ function Footer() {
     <>
       <footer>
         <div className="menu">
-          <a href="index.html">Web Barber Shop</a>
+          <a href="/">Barbearia Ramos</a>
           <p>
-            A Web Barber Shop oferece agendamento online prático e rápido.
+            A Barbearia Ramos oferece agendamento online prático e rápido.
             Escolha o serviço, o horário e receba a confirmação por WhatsApp ou
             e-mail. Mais comodidade, agilidade e estilo no seu dia a dia.
           </p>
@@ -24,7 +24,7 @@ function Footer() {
           </p>
           <p>
             <img src="../assets/msg2.png" alt="Email"></img>
-            barbershop@gmail.com
+            ramosbarbearia@gmail.com
           </p>
         </div>
         <div className="menu3">

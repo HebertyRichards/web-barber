@@ -4,6 +4,7 @@ import Agendamento from "./pages/agendamento/Appointment";
 import Produtos from "./pages/produtos/Product";
 import Servicos from "./pages/servicos/Service";
 import CancelarAgendamento from "./pages/apagar/CancelAppointment";
+import Assinatura from "./pages/assinaturas/Signature";
 
 function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ function AppRoutes() {
           path="/cancelar-agendamento"
           element={<CancelarAgendamento />}
         ></Route>
+        <Route path="/assinatura" element={<Assinatura />}></Route>
       </Routes>
     </BrowserRouter>
   );

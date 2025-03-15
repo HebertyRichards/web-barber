@@ -22,6 +22,7 @@ function SideBar() {
         <img id="icon2" src="../src/assets/icon.png" alt=""></img>
         <Link to="/">Home</Link>
         <Link to="/agendamento">Agendamento</Link>
+        <Link to="/assinatura">Assinaturas</Link>
         <Link to="/produtos">Produtos</Link>
         <Link to="/servicos">Serviços</Link>
       </div>

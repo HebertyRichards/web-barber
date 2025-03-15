@@ -5,7 +5,7 @@ import "../../style.css";
 
 function Agendamento() {
   useEffect(() => {
-    document.title = "Agendamento - Web Barber Shop";
+    document.title = "Agendamento - Barbearia Ramos";
   }, []);
 
   const [data, setData] = useState("");

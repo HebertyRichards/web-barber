@@ -4,7 +4,7 @@ import Footer from "../../footer/Footer";
 
 function CancelarAgendamento() {
   useEffect(() => {
-    document.title = "Cancelar Agendamento - Web Barber Shop";
+    document.title = "Cancelar Agendamento - Barbearia Ramos";
   }, []);
 
   const [idAgendamento, setIdAgendamento] = useState("");
