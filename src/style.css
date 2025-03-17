@@ -552,6 +552,102 @@ button[type="submit"] {
 
 .info-sign {
   text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.info-sign h2 {
+  font-family: "Impactt";
+  font-size: 1.6em;
+}
+
+.plans {
+  display: flex;
+  justify-content: center;
+}
+
+.info-sign p {
+  font-size: 1.4em;
+}
+
+.bronze,
+.silver,
+.gold {
+  margin: 20px;
+}
+
+.bronze-pay {
+  background-color: rgb(112, 61, 20);
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.silver-pay {
+  background-color: silver;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.gold-pay {
+  background-color: gold;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  color: black;
+}
+
+td {
+  padding: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px 40px;
+}
+
+table button {
+  margin: 0 auto;
+  background-color: rgb(245, 189, 37);
+  color: white;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+table button:hover {
+  background-color: transparent;
+  border: 1px solid rgb(245, 189, 37);
+  color: rgb(245, 189, 37);
+}
+
+#h2 {
+  text-align: center;
+}
+
+.pergunta.ativo {
+  background: black;
+  color: gold;
+}
+
+.pergunta.ativo h3 {
+  color: gold;
 }
 
 footer {
