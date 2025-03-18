@@ -139,6 +139,7 @@ body {
   border: none;
   font-weight: bold;
   cursor: pointer;
+  font-family: "caviar", sans-serif;
 }
 
 .sidebar a:hover {
@@ -564,6 +565,7 @@ button[type="submit"] {
 .plans {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .info-sign p {
@@ -576,34 +578,27 @@ button[type="submit"] {
   margin: 20px;
 }
 
-.bronze-pay {
-  background-color: rgb(112, 61, 20);
+.bronze-pay,
+.silver-pay,
+.gold-pay {
   margin-bottom: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 40px;
+}
+
+.bronze-pay {
+  background-color: rgb(112, 61, 20);
 }
 
 .silver-pay {
   background-color: silver;
-  margin-bottom: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 40px;
 }
 
 .gold-pay {
   background-color: gold;
-  margin-bottom: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 40px;
 }
 
 table {
@@ -894,6 +889,7 @@ footer img {
   #email {
     width: 100%;
   }
+
   footer {
     padding: 15px;
     gap: 15px;
