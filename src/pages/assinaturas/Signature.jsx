@@ -51,7 +51,7 @@ function Assinatura() {
               </tr>
               <tr>
                 <td>
-                  <button>ASSINAR</button>
+                  <a href="/assinatura-bronze">Assinar</a>
                 </td>
               </tr>
             </table>
@@ -60,7 +60,7 @@ function Assinatura() {
         <div className="silver">
           <div className="silver-pay">
             <h3>COMBO PRATA</h3>
-            <h2>R$110/ por mês</h2>
+            <h2>R$130/ por mês</h2>
           </div>
           <div className="silver-info">
             <table>
@@ -87,7 +87,7 @@ function Assinatura() {
               </tr>
               <tr>
                 <td>
-                  <button>ASSINAR</button>
+                  <a href="/assinatura-prata">Assinar</a>
                 </td>
               </tr>
             </table>
@@ -123,7 +123,7 @@ function Assinatura() {
               </tr>
               <tr>
                 <td>
-                  <button>ASSINAR</button>
+                  <a href="/assinatura-ouro">Assinar</a>
                 </td>
               </tr>
             </table>

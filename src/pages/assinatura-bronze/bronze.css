@@ -1,0 +1,61 @@
+.bronze-pay2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 1%;
+  margin-top: 2%;
+  padding: 0px;
+  background-color: rgb(112, 61, 20);
+}
+
+hr {
+  width: 100%;
+}
+
+#table {
+  width: 50%;
+}
+
+#formulario3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+#nome3,
+#telefone3 {
+  border: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  padding: 10px;
+  font-size: 1em;
+  color: white;
+  outline: none;
+  margin: 10px;
+  width: 70%;
+}
+@media (max-width: 800px) {
+  .bronze-pay2 {
+    width: 90%;
+    margin-bottom: 3%;
+  }
+
+  #formulario3 {
+    width: 100%;
+  }
+
+  #nome3,
+  #telefone3 {
+    width: 90%;
+  }
+
+  #table3 {
+    width: 90%;
+  }
+}

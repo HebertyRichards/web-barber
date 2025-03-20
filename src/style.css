@@ -608,25 +608,24 @@ table {
 }
 
 td {
-  padding: 8px;
   background-color: #f9f9f9;
   text-align: center;
-  padding: 20px 40px;
+  padding: 30px 40px;
 }
 
-table button {
+table a {
   margin: 0 auto;
   background-color: rgb(245, 189, 37);
   color: white;
   border: none;
-  padding: 20px;
+  padding: 15px;
   cursor: pointer;
   transition: background-color 0.4s ease;
   text-decoration: none;
   font-weight: bold;
 }
 
-table button:hover {
+table a:hover {
   background-color: transparent;
   border: 1px solid rgb(245, 189, 37);
   color: rgb(245, 189, 37);
@@ -663,7 +662,7 @@ footer img {
 }
 
 .menu a {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Impactt", sans-serif;
   text-decoration: none;
   color: white;
   letter-spacing: 2px;
