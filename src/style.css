@@ -499,13 +499,11 @@ button[type="submit"] {
 }
 
 .catalog-services,
-.catalog-services2,
-.catalog-prods,
-.catalog-prods2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 7%;
+.catalog-prods {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .servicos2 img,
@@ -531,6 +529,7 @@ button[type="submit"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5%;
 }
 
 .produtos2 button {
@@ -646,8 +645,6 @@ table a:hover {
 
 footer {
   background-color: #242424;
-  display: flex;
-  justify-content: center;
   gap: 50px;
   padding: 25px;
   text-align: center;
@@ -659,6 +656,17 @@ footer img {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+}
+
+footer hr {
+  width: 80%;
+}
+
+.menus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .menu a {
@@ -686,6 +694,12 @@ footer img {
   box-sizing: border-box;
   justify-content: center;
   text-decoration: none;
+}
+
+.menu,
+.menu2,
+.menu3 {
+  margin-left: 5%;
 }
 
 #facebook {
@@ -768,6 +782,10 @@ footer img {
   #formulario {
     width: 70%;
   }
+
+  .catalog-services {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 800px) {
   .slide {
@@ -807,8 +825,12 @@ footer img {
   }
 
   .leaflet-container {
-    height: 180px;
-    width: 70%;
+    height: 250px;
+    width: 80%;
+  }
+
+  .catalog-services {
+    grid-template-columns: 1fr;
   }
 
   .products {
@@ -868,6 +890,11 @@ footer img {
     padding: 10px;
   }
 
+  .info-prods,
+  .info-services {
+    width: 80%;
+  }
+
   .info-services h2,
   .info-prods h2,
   .back-forms h2 {
@@ -892,6 +919,15 @@ footer img {
   footer {
     padding: 15px;
     gap: 15px;
+  }
+
+  .menus {
     flex-wrap: wrap;
+  }
+
+  .menu,
+  .menu2,
+  .menu3 {
+    margin-left: 0%;
   }
 }
