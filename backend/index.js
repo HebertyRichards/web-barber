@@ -1,10 +1,11 @@
-const express = require("express");
-const mysql = require("mysql2");
-const nodemailer = require("nodemailer");
-require("dotenv").config();
+const express = require("express"); // framework do node.js
+const mysql = require("mysql2"); // importa a biblioteca mysql para conectar back end ao banco de dados
+const nodemailer = require("nodemailer"); // biblioteca para envio de emails
+require("dotenv").config(); // arquivo para configuração de deploy
 
 const app = express();
 
+// esse cors lida com requisições json para permitir acesso ao frontend da aplicação
 app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader(
@@ -17,6 +18,9 @@ app.use((req, res, next) => {
   next();
 });
 
+/* configuração para conexão do banco de dados, 
+máximo de conexões simultaneas: 10 
+e o tempo para conectar ao banco: 10 segundos */
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -28,6 +32,7 @@ const pool = mysql.createPool({
   connectTimeout: 10000,
 });
 
+/* configuração para envio do email */
 const transport = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -50,15 +55,18 @@ app.post("/agendar", (req, res) => {
     barbeiro,
   } = req.body;
 
+  /* se não preencher o telefone ou email, aparece a mensagem de aviso */
   if (!telefone && !email) {
     return res
       .status(400)
       .json({ message: "Por favor, preencha o telefone ou o email." });
   }
 
+  /* ao conectar com o banco e o usuario inserir seus dados, aplica esse comando diretamente para cadastro */
   const sql =
     "INSERT INTO agendamentos (nome_cliente, telefone, email, data_agendamento, horario, servico, barbeiro) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
+  // executando uma query, responsavel por salvar o agendamento, em caso de falha exibe mensagem de erro
   pool.query(
     sql,
     [
@@ -76,6 +84,7 @@ app.post("/agendar", (req, res) => {
         return res.status(500).json({ message: "Erro ao salvar agendamento" });
       }
 
+      // modificando o texto na mensagem do email, para maior entendimento do usuario
       const data = new Date(data_agendamento);
       const dataFormatada = data
         .toLocaleDateString("pt-BR", {
@@ -85,6 +94,8 @@ app.post("/agendar", (req, res) => {
         })
         .replace(/\//g, "-");
 
+      /* mensagem de email, caso a requisição de cadastro for sucesso, 
+        caso o email seja inválido ou sem cadastro, aparece a amensgaem de erro */
       if (email) {
         const mailOptions = {
           from: "Barbearia Ramos <" + process.env.EMAIL_USER + ">",
@@ -125,12 +136,16 @@ app.post("/agendar", (req, res) => {
 app.delete("/cancelar-agendamento/:id", (req, res) => {
   const idAgendamento = req.params.id;
 
+  // obriga que o campo seja obrigatorio o preenchimento para prosseguir
   if (!idAgendamento) {
     return res
       .status(400)
       .json({ message: "ID do agendamento é obrigatório." });
   }
 
+  /* cria uma constante e nela, está inserido o código para apagar os dados,
+  se o id for correto apaga os dados, se nao encontrar ira aparecer agendamento nao encontrado
+  ou erro do banco de dados apagar os dados */
   const sql = "DELETE FROM agendamentos WHERE id_agendamento = ?";
 
   pool.query(sql, [idAgendamento], (err, result) => {
@@ -149,6 +164,7 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
   });
 });
 
+// porta de conexão backend
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

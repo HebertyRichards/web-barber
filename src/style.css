@@ -11,6 +11,8 @@ body {
   color: white;
 }
 
+/*  font header e botões do header */
+
 @font-face {
   font-family: "Impactt";
   src: url("./fonts/Impact.ttf");
@@ -24,6 +26,10 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+/* (back)header sem de todas as páginas sem ser a principal */
+/* header da pagina principal */
+/* responsividade para telas mobiles */
 
 .back {
   background: linear-gradient(
@@ -164,6 +170,8 @@ body {
   border: none;
 }
 
+/* primeiro slide principal e seus botões */
+
 .slide {
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
@@ -228,6 +236,8 @@ button[type="submit"]:hover,
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+/* sobre na pagina prncipal */
+
 .sobre {
   background-color: antiquewhite;
   color: black;
@@ -245,6 +255,8 @@ button[type="submit"]:hover,
   width: 30%;
   margin: 0 auto;
 }
+
+/* slide de cortes de cabelo, seus botoes, e texto */
 
 #main-swiper {
   width: 60%;
@@ -321,7 +333,15 @@ button[type="submit"]:hover,
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.info-prods {
+.slide2 img {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+}
+
+/* página de produtos juntamente com a de página de serviços, ambas tem o mesmo estilo*/
+.info-prods,
+.info-services {
   width: 50%;
   margin: 0 auto;
   margin-top: 5%;
@@ -341,13 +361,30 @@ button[type="submit"]:hover,
   font-size: 1.5em;
 }
 
-.info-services {
-  width: 50%;
-  margin: 0 auto;
+.catalog-services,
+.catalog-prods {
   margin-top: 5%;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
+.servicos2 img,
+.produtos2 img {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.servicos2,
+.produtos2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+}
+
+/* mapa na pagina principal */
 .maps {
   text-align: center;
   margin-top: 7%;
@@ -361,6 +398,8 @@ button[type="submit"]:hover,
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
 }
+
+/* produtos na página principal */
 
 .produtos {
   text-align: center;
@@ -414,6 +453,8 @@ button[type="submit"]:hover,
   background-color: white;
   color: black;
 }
+
+/* página agendamento e seu formulário */
 
 .back-forms {
   background-color: rgb(44, 44, 44);
@@ -498,37 +539,10 @@ button[type="submit"] {
   font-weight: bold;
 }
 
-.catalog-services,
-.catalog-prods {
-  margin-top: 5%;
+/* produtos página principal */
+.products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.servicos2 img,
-.produtos2 img {
-  width: 200px;
-  height: 200px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
-}
-
-.slide2 img {
-  margin: 0 auto;
-  width: 200px;
-  height: 200px;
-}
-
-.products {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.servicos2,
-.produtos2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 5%;
 }
 
@@ -544,6 +558,8 @@ button[type="submit"] {
   text-decoration: none;
   font-weight: bold;
 }
+
+/* página de assinaturas */
 
 .back-forms h2,
 .back-forms p {
@@ -643,6 +659,8 @@ table a:hover {
   color: gold;
 }
 
+/* rodapé */
+
 footer {
   background-color: #242424;
   gap: 50px;
@@ -702,8 +720,8 @@ footer hr {
   margin-left: 5%;
 }
 
-#facebook {
-  background-image: url("../src/assets/Facebook.png");
+#facebook,
+#instagram {
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -713,16 +731,15 @@ footer hr {
   margin: 0 10px;
 }
 
+#facebook {
+  background-image: url("../src/assets/Facebook.png");
+}
+
 #instagram {
   background-image: url("../src/assets/instagram.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  border: none;
-  border-radius: 5px;
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
 }
+
+/* responsividade */
 @media (max-width: 1650px) {
   #main-swiper {
     width: 70%;
@@ -783,7 +800,9 @@ footer hr {
     width: 70%;
   }
 
-  .catalog-services {
+  .catalog-services,
+  .catalog-prods,
+  .products {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -829,7 +848,9 @@ footer hr {
     width: 80%;
   }
 
-  .catalog-services {
+  .catalog-services,
+  .catalog-prods,
+  .products {
     grid-template-columns: 1fr;
   }
 
