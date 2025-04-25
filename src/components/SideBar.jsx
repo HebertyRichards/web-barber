@@ -25,7 +25,7 @@ function SideBar() {
         <Link to="/assinatura">Assinaturas</Link>
         <Link to="/produtos">Produtos</Link>
         <Link to="/servicos">Serviços</Link>
-        <Link to="/painel">painel</Link>
+        <Link to="/painel.php">painel</Link>
       </div>
     </>
   );
