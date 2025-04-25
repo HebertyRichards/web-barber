@@ -1,5 +1,5 @@
 <?php
-$config = include(__DIR__ . '/.env.php'); 
+$config = include(__DIR__ . '../php/.env.php'); 
 
 $conn = new mysqli($host, $user, $pass, $db);
 
