@@ -9,10 +9,9 @@ Desenvolver uma solução inovadora para **agendamento online de serviços em ba
 
 - Interface web responsiva para agendamento de horários
 - Bloqueio dinâmico de horários indisponíveis
+- **Compra de produtos** diretamente pelo WhatsApp
 - Painel administrativo para gestão dos agendamentos
 - Envio automatizado de confirmações e lembretes via **e-mail** e **WhatsApp**
-- Cadastro de clientes, serviços e profissionais
-- Cancelamento automatizado via WhatsApp
 - Integração com banco de dados na nuvem
 
 ---
@@ -30,7 +29,7 @@ Desenvolver uma solução inovadora para **agendamento online de serviços em ba
 ## 🧠 Atividades Desenvolvidas
 
 - Criação de interfaces responsivas com React.js, seguindo princípios de UX/UI
-- Integração de APIs externas como WhatsApp e Nodemailer (similar a SendGrid/Marketo)
+- Integração de APIs externas como WhatsApp e Nodemailer.
 - Desenvolvimento full stack com React (frontend), Node.js (servidor) e PHP (painel admin)
 - Controle de dados e eventos com MySQL, base para análise e automação
 
