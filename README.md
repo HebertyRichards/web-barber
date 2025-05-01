@@ -18,7 +18,7 @@ Desenvolver uma solução inovadora para **agendamento online de serviços em ba
 
 ## 🧩 Tecnologias Utilizadas
 
-- **Frontend:** React.js, HTML5, CSS3, JavaScript
+- **Frontend:** React.js, Vite, HTML5, CSS3, JavaScript
 - **Backend:** Node.js (Express), PHP
 - **Banco de Dados:** MySQL (hospedado na nuvem)
 - **APIs & Ferramentas:** Nodemailer, API WhatsApp, REST API
@@ -30,6 +30,7 @@ Desenvolver uma solução inovadora para **agendamento online de serviços em ba
 
 - Criação de interfaces responsivas com React.js, seguindo princípios de UX/UI
 - Integração de APIs externas como WhatsApp e Nodemailer.
+- **Implementação de compras via WhatsApp**, permitindo que os clientes adquiram produtos diretamente pelo chat
 - Desenvolvimento full stack com React (frontend), Node.js (servidor) e PHP (painel admin)
 - Controle de dados e eventos com MySQL, base para análise e automação
 
