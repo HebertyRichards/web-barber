@@ -15,6 +15,7 @@ function Agendamento() {
   const [horario, setHorario] = useState("");
   const [servico, setServico] = useState("");
   const [barbeiro, setBarbeiro] = useState("");
+  const [horariosIndisponiveis, setHorariosIndisponiveis] = useState([]);
 
   useEffect(() => {
     setData(getDataAtual());
@@ -77,6 +78,26 @@ function Agendamento() {
     return valor;
   };
 
+  useEffect(() => {
+    async function buscarHorariosIndisponiveis() {
+      if (data && barbeiro) {
+        try {
+          const res = await fetch(
+            `https://web-barber-production.up.railway.app/agendamentos?data=${data}&barbeiro=${encodeURIComponent(
+              barbeiro
+            )}`
+          );
+          const json = await res.json();
+          setHorariosIndisponiveis(json.horariosIndisponiveis || []);
+        } catch (err) {
+          console.error("Erro ao buscar horários indisponíveis:", err);
+        }
+      }
+    }
+
+    buscarHorariosIndisponiveis();
+  }, [data, barbeiro]);
+
   const renderHorarios = () => {
     const horarios = [
       "08:00",
@@ -113,17 +134,12 @@ function Agendamento() {
     const dataAtual = `${horaAtual.getFullYear()}-${String(
       horaAtual.getMonth() + 1
     ).padStart(2, "0")}-${String(horaAtual.getDate()).padStart(2, "0")}`;
-    const dataSelecionada = data;
-
-    const isHoje = dataSelecionada === dataAtual;
-    const isPosterior = dataSelecionada > dataAtual;
+    const isHoje = data === dataAtual;
 
     return horarios
       .filter((horario) => {
-        if (isHoje) {
-          return horario > horaAtualFormatada;
-        }
-        return true;
+        if (isHoje && horario <= horaAtualFormatada) return false;
+        return !horariosIndisponiveis.includes(horario);
       })
       .map((horario) => (
         <option key={horario} value={horario}>
@@ -131,7 +147,6 @@ function Agendamento() {
         </option>
       ));
   };
-
   return (
     <>
       <div className="back2">

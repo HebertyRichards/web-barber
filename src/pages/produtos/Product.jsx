@@ -8,6 +8,16 @@ function Produtos() {
     document.title = "Produtos - Barbearia Ramos";
   }, []);
 
+  const handleComprar = async (item) => {
+    const response = await fetch(
+      `http://localhost:3001/whatsapp-link?produto=${encodeURIComponent(
+        item.produto
+      )}&preco=${encodeURIComponent(item.preco)}`
+    );
+    const data = await response.json();
+    window.open(data.link, "_blank");
+  };
+
   return (
     <>
       <div className="back2">

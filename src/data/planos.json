@@ -1,0 +1,47 @@
+[
+  {
+    "nome": "COMBO BRONZE",
+    "preco": "R$70/ por mês",
+    "link": "/assinatura-bronze",
+    "classe": "bronze",
+    "beneficios": [
+      "3 Cortes por mês",
+      "Acabamento ilimitado",
+      "Nenhum",
+      "Nenhum",
+      "Nenhum",
+      "Nehnum",
+      "20% Desc. produto/serviço"
+    ]
+  },
+  {
+    "nome": "COMBO PRATA",
+    "preco": "R$130/ por mês",
+    "link": "/assinatura-prata",
+    "classe": "silver",
+    "beneficios": [
+      "5 Cortes por mês",
+      "Acabamento ilimitado",
+      "Sobrancelha ilimitado",
+      "Hidratação",
+      "Nenhum",
+      "Nehnum",
+      "20% Desc. produto/serviço"
+    ]
+  },
+  {
+    "nome": "COMBO OURO",
+    "preco": "R$210/ por mês",
+    "link": "/assinatura-ouro",
+    "classe": "gold",
+    "beneficios": [
+      "Corte ilimitado",
+      "Sobrancelha ilimitado",
+      "Barba ilimitada",
+      "Depilação orelha ou nariz",
+      "Nutrição",
+      "Hidratação",
+      "30% Desc. produto/serviço"
+    ]
+  }
+]

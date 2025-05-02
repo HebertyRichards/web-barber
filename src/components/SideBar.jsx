@@ -19,7 +19,9 @@ function SideBar() {
         <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
           ×
         </a>
-        <img id="icon2" src="../src/assets/icon.png" alt=""></img>
+        <a id="barber-home" href="/">
+          Barbearia Freitas
+        </a>
         <Link to="/">Home</Link>
         <Link to="/agendamento">Agendamento</Link>
         <Link to="/assinatura">Assinaturas</Link>

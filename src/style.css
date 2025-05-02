@@ -170,6 +170,12 @@ body {
   border: none;
 }
 
+#barber-home {
+  font-family: "Impactt", sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
 /* primeiro slide principal e seus botões */
 
 .slide {

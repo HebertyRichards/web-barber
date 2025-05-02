@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import Active from "../../header/Active";
 import Footer from "../../footer/Footer";
 import planosData from "../../data/planos.json";
-import "./bronze.css";
+import "./gold.css";
 
-const bronze = planosData.find((plano) => plano.classe === "bronze");
+const ouro = planosData.find((plano) => plano.classe === "gold");
 
-function AssinaturaBronze() {
+function AssinaturaOuro() {
   useEffect(() => {
-    document.title = "Assinatura Bronze - Barbearia Ramos";
+    document.title = "Assinatura Ouro - Barbearia Ramos";
   }, []);
   return (
     <>
@@ -26,15 +26,15 @@ function AssinaturaBronze() {
           <input type="text" id="nome3" name="nome" placeholder="Seu Nome" />
         </div>
       </form>
-      <div className="bronze">
-        <div className="bronze-pay2">
-          <h3>{bronze.nome}</h3>
+      <div className="gold">
+        <div className="gold-pay2">
+          <h3>{ouro.nome}</h3>
           <hr />
-          <h2>{bronze.preco}</h2>
+          <h2>{ouro.preco}</h2>
         </div>
-        <div className="bronze-info">
+        <div className="gold-info">
           <table id="table3">
-            {bronze.beneficios.map((item, index) => (
+            {ouro.beneficios.map((item, index) => (
               <tr key={index}>
                 <td>{item}</td>
               </tr>
@@ -52,4 +52,4 @@ function AssinaturaBronze() {
   );
 }
 
-export default AssinaturaBronze;
+export default AssinaturaOuro;

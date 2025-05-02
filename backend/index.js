@@ -132,6 +132,30 @@ app.post("/agendar", (req, res) => {
   );
 });
 
+// rota para buscar horários já agendados para de um barbeiro em uma data específica
+app.get("/agendamentos", (req, res) => {
+  const { data, barbeiro } = req.query;
+
+  if (!data || !barbeiro) {
+    return res
+      .status(400)
+      .json({ message: "Data e barbeiro são obrigatórios." });
+  }
+
+  const sql =
+    "SELECT horario FROM agendamentos WHERE data_agendamento = ? AND barbeiro = ?";
+
+  pool.query(sql, [data, barbeiro], (err, results) => {
+    if (err) {
+      console.error("Erro ao buscar agendamentos:", err);
+      return res.status(500).json({ message: "Erro ao buscar agendamentos." });
+    }
+
+    const horariosIndisponiveis = results.map((row) => row.horario);
+    res.json({ horariosIndisponiveis });
+  });
+});
+
 //rota para cancelar agendamento
 app.delete("/cancelar-agendamento/:id", (req, res) => {
   const idAgendamento = req.params.id;
