@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
 
 import Home from "./pages/index/Home";
 import Agendamento from "./pages/agendamento/Appointment";

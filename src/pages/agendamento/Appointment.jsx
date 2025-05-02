@@ -3,11 +3,13 @@ import Active from "../../header/Active";
 import Footer from "../../footer/Footer";
 import "../../style.css";
 
+// mudar título da página
 function Agendamento() {
   useEffect(() => {
     document.title = "Agendamento - Barbearia Ramos";
   }, []);
 
+  // estados para guardar os dados cadastrados
   const [data, setData] = useState("");
   const [telefone, setTelefone] = useState("");
   const [nome, setNome] = useState("");
@@ -17,6 +19,7 @@ function Agendamento() {
   const [barbeiro, setBarbeiro] = useState("");
   const [horariosIndisponiveis, setHorariosIndisponiveis] = useState([]);
 
+  // pega a data de agora e aplica no campo de horario no agendamento para evitar erros e marcações no passado
   useEffect(() => {
     setData(getDataAtual());
   }, []);
@@ -25,14 +28,17 @@ function Agendamento() {
     return new Date().toISOString().split("T")[0];
   }
 
+  // enviar agendamento
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    //formatar o telefone
     if (!telefone && !email) {
       alert("Por favor, preencha o telefone ou o email.");
       return;
     }
 
+    // credenciais do banco de dados
     const agendamento = {
       nome_cliente: nome,
       telefone,
@@ -43,6 +49,7 @@ function Agendamento() {
       barbeiro,
     };
 
+    //envia dados para o banco de dados
     try {
       const response = await fetch(
         "https://web-barber-production.up.railway.app/agendar",
@@ -78,6 +85,7 @@ function Agendamento() {
     return valor;
   };
 
+  // busca qual o horario aquele barbeiro tem disponivel no dia, evitar overbooking
   useEffect(() => {
     async function buscarHorariosIndisponiveis() {
       if (data && barbeiro) {
@@ -98,6 +106,7 @@ function Agendamento() {
     buscarHorariosIndisponiveis();
   }, [data, barbeiro]);
 
+  // filtra todos os horarios e gera os horarios disponiveis
   const renderHorarios = () => {
     const horarios = [
       "08:00",
@@ -126,6 +135,7 @@ function Agendamento() {
       "19:30",
     ];
 
+    //formatar a hora em Horas:Minutos e formatar a data em YYYY-MM-DD
     const horaAtual = new Date();
     const horaAtualFormatada = `${String(horaAtual.getHours()).padStart(
       2,
@@ -134,8 +144,10 @@ function Agendamento() {
     const dataAtual = `${horaAtual.getFullYear()}-${String(
       horaAtual.getMonth() + 1
     ).padStart(2, "0")}-${String(horaAtual.getDate()).padStart(2, "0")}`;
+    // consulta seo dia do agendamento é mesmo de hoje, se for menor remove da lista
     const isHoje = data === dataAtual;
 
+    // remove automaticamente horarios indisponiveis  e criação de option para cada horario disponivel
     return horarios
       .filter((horario) => {
         if (isHoje && horario <= horaAtualFormatada) return false;

@@ -45,7 +45,7 @@ function CancelarAgendamento() {
       </div>
       <div className="back-forms">
         <h2>Cancelar Agendamento</h2>
-        <form id="formulario" onSubmit={handleCancel}>
+        <form id="cancel-formulario" onSubmit={handleCancel}>
           <input
             type="number"
             name="id"

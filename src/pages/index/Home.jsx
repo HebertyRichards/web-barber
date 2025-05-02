@@ -5,6 +5,7 @@ import MainProduct from "../../components/MainProduct";
 import Footer from "../../footer/Footer";
 import Mapa from "../../components/Maps";
 import InfoProds from "../../components/Prods";
+import Depoiments from "../../components/Depoiments";
 import "../../style.css";
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
       <MainProduct />
       <Mapa />
       <InfoProds />
+      <Depoiments />
       <Footer />
     </>
   );

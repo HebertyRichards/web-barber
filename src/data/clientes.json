@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "imagem": "https://images.unsplash.com/photo-1639747280804-dd2d6b3d88ac?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "cliente": "João Elias",
+    "depoimento": "Atendimento impecável! Ambiente limpo, organizado e barbeiro Lucas super profissional. Com certeza voltarei!"
+  },
+  {
+    "id": 2,
+    "imagem": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "cliente": "Vitor Dias",
+    "depoimento": "Experiência excelente! Além do corte, ganhei dicas de cuidados com o cabelo e barba."
+  },
+  {
+    "id": 3,
+    "imagem": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "cliente": "Guilherme Freitas",
+    "depoimento": "Ambiente moderno, profissionais qualificados e preço justo. Saí muito satisfeito com o resultado."
+  },
+  {
+    "id": 4,
+    "imagem": "https://images.unsplash.com/photo-1654110455429-cf322b40a906?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "cliente": "Caio Castro",
+    "depoimento": "Corte perfeito, exatamente como pedi. Além disso, o papo foi ótimo! Me senti em casa."
+  },
+  {
+    "id": 5,
+    "imagem": "https://images.unsplash.com/photo-1649057349440-38c14e985208?q=80&w=1930&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "cliente": "Arnaldo Ribas",
+    "depoimento": "Fui muito bem atendido. O barbeiro foi atencioso e caprichou nos detalhes. Recomendo demais!"
+  },
+  {
+    "id": 6,
+    "imagem": "https://images.unsplash.com/photo-1584999734482-0361aecad844?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "cliente": "Gustavo Andrade",
+    "depoimento": "Melhor barbearia da região! Pontualidade, qualidade e um atendimento diferenciado."
+  }
+]
