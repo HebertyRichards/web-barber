@@ -8,16 +8,6 @@ function Produtos() {
     document.title = "Produtos - Barbearia Ramos";
   }, []);
 
-  const handleComprar = async (item) => {
-    const response = await fetch(
-      `http://localhost:3001/whatsapp-link?produto=${encodeURIComponent(
-        item.produto
-      )}&preco=${encodeURIComponent(item.preco)}`
-    );
-    const data = await response.json();
-    window.open(data.link, "_blank");
-  };
-
   return (
     <>
       <div className="back2">
@@ -32,13 +22,14 @@ function Produtos() {
       </div>
       <div className="catalog-prods">
         {produtosData.map((item) => (
-          <div className="produtos2" ke={item.id}>
+          <div className="produtos2" key={item.id}>
             <img src={item.imagem} alt={item.produto}></img>
             <h2>{item.produto}</h2>
             <h3>{item.preco}</h3>
             <button>Comprar Agora</button>
           </div>
         ))}
+        
       </div>
       <Footer />
     </>

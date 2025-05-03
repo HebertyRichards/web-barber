@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "../style.css";
+import { useState, useEffect } from "react";
+import "../styles/style.css";
 import clientesData from "../data/clientes.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";

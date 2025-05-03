@@ -8,7 +8,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import servicosData from "../data/servicos.json";
-import "../style.css";
+import "../styles/style.css";
 
 const MainProduct = () => {
   return (

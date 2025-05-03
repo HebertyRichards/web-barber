@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Active from "../../header/Active";
 import Footer from "../../footer/Footer";
 
@@ -35,6 +35,7 @@ function CancelarAgendamento() {
       }
     } catch (error) {
       setMensagem("Erro ao conectar com o servidor.");
+      console.error(error);
     }
   };
 

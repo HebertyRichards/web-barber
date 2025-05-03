@@ -1,7 +1,6 @@
-import React from "react";
 import Modo from "./Modo";
 import { Link } from "react-router-dom";
-import "../style.css";
+import "../styles/style.css";
 
 function SideBar() {
   const openNav = () => {

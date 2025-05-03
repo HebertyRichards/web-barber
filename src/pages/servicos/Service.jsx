@@ -19,7 +19,7 @@ function Servicos() {
       </div>
       <div className="catalog-services">
         {servicosData.map((item) => (
-          <div className="servicos2" ke={item.id}>
+          <div className="servicos2" key={item.id}>
             <img src={item.imagem} alt={item.servico}></img>
             <h2>{item.servico}</h2>
             <h3>{item.preco}</h3>

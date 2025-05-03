@@ -1,5 +1,4 @@
-import React from "react";
-import "../style.css";
+import "../styles/style.css";
 import produtosData from "../data/produtos.json";
 
 function InfoProds() {
@@ -10,7 +9,7 @@ function InfoProds() {
       </div>
       <div className="products">
         {produtosData.slice(0, 4).map((item) => (
-          <div className="Prods" ke={item.id}>
+          <div className="Prods" key={item.id}>
             <img src={item.imagem} alt={item.produto} />
             <h2>{item.produto}</h2>
             <h3>{item.preco}</h3>

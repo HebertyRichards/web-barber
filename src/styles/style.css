@@ -15,14 +15,14 @@ body {
 
 @font-face {
   font-family: "Impactt";
-  src: url("./fonts/Impact.ttf");
+  src: url("../fonts/Impact.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Caviar";
-  src: url("./fonts/CaviarDreams.ttf");
+  src: url("../fonts/CaviarDreams.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -528,6 +528,8 @@ button[type="submit"]:hover,
 .date-hour #date,
 #servico,
 #barbeiro {
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
   background-color: rgb(47, 47, 47);
   color: white;
 }
@@ -541,6 +543,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #telefone,
 #email {
   border: none;
+  color: white;
   background-color: transparent;
   border-bottom: 1px solid whitesmoke;
   padding: 10px 20px;

@@ -20,7 +20,8 @@ app.use((req, res, next) => {
 
 /* configuração para conexão do banco de dados, 
 máximo de conexões simultaneas: 10 
-e o tempo para conectar ao banco: 10 segundos */
+e o tempo para conectar ao banco: 10 segundos 
+As variaveis estão diretamente aplicadas no railway*/
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -121,6 +122,7 @@ app.post("/agendar", (req, res) => {
           }
           res.status(200).json({
             message: "Agendamento criado e e-mail enviado com sucesso!",
+            info: info.response, 
           });
         });
       } else {
@@ -131,6 +133,7 @@ app.post("/agendar", (req, res) => {
     }
   );
 });
+
 
 // rota para buscar horários já agendados para de um barbeiro em uma data específica
 app.get("/agendamentos", (req, res) => {

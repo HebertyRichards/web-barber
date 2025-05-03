@@ -1,5 +1,4 @@
-import React from "react";
-import "../style.css";
+import "../styles/style.css";
 
 function Sobre() {
   return (

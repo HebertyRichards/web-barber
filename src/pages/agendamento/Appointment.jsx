@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Active from "../../header/Active";
 import Footer from "../../footer/Footer";
-import "../../style.css";
+import "../../styles/style.css";
 
 // mudar título da página
 function Agendamento() {
