@@ -159,108 +159,126 @@ function Agendamento() {
         </option>
       ));
   };
+
+  // lógica para deixar botão inutilizavel caso os campos não sejam preenchidos "required"
+  const isFormValid =
+    nome.trim() !== "" &&
+    data.trim() !== "" &&
+    horario.trim() !== "" &&
+    servico.trim() !== "" &&
+    barbeiro.trim() !== "" &&
+    (telefone.trim() !== "" || email.trim() !== "");
   return (
     <>
       <div className="back2">
         <Active />
       </div>
       <div className="back-forms">
-        <h2>Agendamento</h2>
-        <p>Venha aumentar sua autoestima ficando novo!</p>
-        <form id="formulario" onSubmit={handleSubmit}>
-          <div className="num-date">
-            <input
-              type="tel"
-              id="telefone"
-              name="telefone"
-              placeholder="Telefone com DD"
-              value={telefone}
-              onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
-            />
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Seu Nome"
-              required
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            />
-          </div>
-          <div className="email-infos">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Seu Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="date-hour">
-            <input
-              type="date"
-              name="data"
-              value={data}
-              min={getDataAtual()}
-              onChange={(e) => setData(e.target.value)}
-              required
-            />
-            <select
-              id="horario"
-              name="horario"
-              required
-              value={horario}
-              onChange={(e) => setHorario(e.target.value)}
-            >
-              <option value="">Horário</option>
-              {renderHorarios()}
-            </select>
-          </div>
-          <div className="cut-info">
-            <select
-              id="servico"
-              name="servico"
-              required
-              value={servico}
-              onChange={(e) => setServico(e.target.value)}
-            >
-              <option value="">Selecione</option>
-              <option value="Corte - R$30,00">Corte - R$30,00</option>
-              <option value="Barba - R$25,00">Barba - R$25,00</option>
-              <option value="Bigode - R$5,00">Bigode - R$5,00</option>
-              <option value="Corte + Barba -  R$50,00">
-                Corte + Barba - R$50,00
-              </option>
-              <option value="Corte + Bigode+ Sobrancelha - R$40,00 ">
-                Corte + Bigode + Sobrancelha - R$40,00
-              </option>
-              <option value="Penteado - R$20,00">Penteado - R$20,00</option>
-              <option value="Máquina Geral - R$20,00">
-                Máquina Geral - R$20,00
-              </option>
-              <option value="Luzes - R$65,00">Luzes - R$65,00</option>
-              <option value="Hidratação - R$15,00">Hidratação - R$15,00</option>
-            </select>
-          </div>
-          <div className="barber-infos">
-            <select
-              id="barbeiro"
-              name="barbeiro"
-              required
-              value={barbeiro}
-              onChange={(e) => setBarbeiro(e.target.value)}
-            >
-              <option value="">Selecione</option>
-              <option value="João">João</option>
-              <option value="Carlos">Carlos</option>
-              <option value="Pedro">Pedro</option>
-            </select>
-          </div>
-          <div className="btn-confirm">
-            <button type="submit">Confirmar Agendamento</button>
-          </div>
-        </form>
+        <div className="forms-style">
+          <h2>Agendamento</h2>
+          <p>Venha aumentar sua autoestima ficando novo!</p>
+          <form id="formulario" onSubmit={handleSubmit}>
+            <div className="num-date">
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="Telefone com DD"
+                value={telefone}
+                onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
+              />
+            </div>
+            <div className="name-info">
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu Nome"
+                required
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
+            </div>
+            <div className="email-infos">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Seu Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="date-hour">
+              <input
+                type="date"
+                name="data"
+                id="date"
+                value={data}
+                min={getDataAtual()}
+                onChange={(e) => setData(e.target.value)}
+                required
+              />
+              <select
+                id="horario"
+                name="horario"
+                required
+                value={horario}
+                onChange={(e) => setHorario(e.target.value)}
+              >
+                <option value="">Horário</option>
+                {renderHorarios()}
+              </select>
+            </div>
+            <div className="cut-info">
+              <select
+                id="servico"
+                name="servico"
+                required
+                value={servico}
+                onChange={(e) => setServico(e.target.value)}
+              >
+                <option value="">Selecione</option>
+                <option value="Corte - R$30,00">Corte - R$30,00</option>
+                <option value="Barba - R$25,00">Barba - R$25,00</option>
+                <option value="Bigode - R$5,00">Bigode - R$5,00</option>
+                <option value="Corte + Barba -  R$50,00">
+                  Corte + Barba - R$50,00
+                </option>
+                <option value="Corte + Bigode+ Sobrancelha - R$40,00 ">
+                  Corte + Bigode + Sobrancelha - R$40,00
+                </option>
+                <option value="Penteado - R$20,00">Penteado - R$20,00</option>
+                <option value="Máquina Geral - R$20,00">
+                  Máquina Geral - R$20,00
+                </option>
+                <option value="Luzes - R$65,00">Luzes - R$65,00</option>
+                <option value="Hidratação - R$15,00">
+                  Hidratação - R$15,00
+                </option>
+              </select>
+            </div>
+            <div className="barber-infos">
+              <select
+                id="barbeiro"
+                name="barbeiro"
+                required
+                value={barbeiro}
+                onChange={(e) => setBarbeiro(e.target.value)}
+              >
+                <option value="">Selecione</option>
+                <option value="João">João</option>
+                <option value="Carlos">Carlos</option>
+                <option value="Pedro">Pedro</option>
+              </select>
+            </div>
+            <div className="btn-confirm">
+              <button type="submit" disabled={!isFormValid}>
+                Confirmar Agendamento
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
       <Footer />
     </>

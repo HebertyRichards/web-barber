@@ -24,7 +24,7 @@ function SideBar() {
         </a>
         <Link to="/">Home</Link>
         <Link to="/agendamento">Agendamento</Link>
-        <Link to="/assinatura">Assinaturas</Link>
+        <Link to="/assinaturas">Assinaturas</Link>
         <Link to="/produtos">Produtos</Link>
         <Link to="/servicos">Serviços</Link>
       </div>

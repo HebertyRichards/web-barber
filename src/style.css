@@ -503,21 +503,38 @@ button[type="submit"]:hover,
   padding: 20px;
 }
 
+.forms-style,
 #formulario,
 #cancel-formulario {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
   margin: 0 auto;
-  margin-top: 2%;
+  background-color: rgb(17, 17, 17);
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+  padding: 10px 20px;
 }
 
 .date-hour #horario,
-.date-hour input[type="date"] {
+.date-hour #date {
   margin-left: 20px;
   padding: 10px;
   margin: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+}
+
+.date-hour #horario,
+.date-hour #date,
+#servico,
+#barbeiro {
+  background-color: rgb(47, 47, 47);
+  color: white;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: rgb(214, 214, 214);
+  cursor: pointer;
 }
 
 #nome,
@@ -525,20 +542,10 @@ button[type="submit"]:hover,
 #email {
   border: none;
   background-color: transparent;
-  border: none;
   border-bottom: 1px solid whitesmoke;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 1em;
-  color: white;
   outline: none;
-}
-
-#email {
-  width: 400px;
-}
-
-#nome {
-  margin-left: 10px;
 }
 
 .cut-infos,
@@ -576,6 +583,20 @@ button[type="submit"] {
   text-decoration: none;
   margin-top: 2%;
   font-weight: bold;
+}
+
+.btn-confirm button:disabled,
+#btn-cancel:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-confirm button:disabled:hover,
+#btn-cancel:disabled:hover {
+  background-color: #cccccc;
+  border: none;
 }
 
 /* produtos página principal */
@@ -899,35 +920,45 @@ footer hr {
     margin: 0 auto;
   }
 
-  #formulario {
-    display: flex;
-    align-items: first baseline;
-    width: 100%;
-  }
-
-  #cancel-formulario {
+  .forms-style {
+    padding: 10px 20px;
     width: 90%;
   }
 
-  #servico {
-    margin: 0px;
+  #formulario,
+  #cancel-formulario {
+    padding: 5px 10px;
     width: 80%;
+    margin: 0 auto;
   }
 
-  #nome {
-    margin-left: 0px;
-    margin-top: 5px;
+  .date-hour #horario,
+  .date-hour input[type="date"] {
+    margin-left: 20px;
+    padding: 10px;
+    margin: 10px;
   }
+
+  #nome,
+  #telefone,
+  #email {
+    padding: 10px 5px;
+    font-size: 0.9em;
+  }
+
+  #servico {
+    width: 90%;
+  }
+
   .date-hour #horario,
   .date-hour input[type="date"] {
     margin-left: 0px;
   }
 
-  #nome,
-  #telefone,
   #barbeiro,
   #servico {
     padding: 5px;
+    margin: 0px;
   }
 
   button[type="submit"] {
@@ -955,10 +986,6 @@ footer hr {
   .servicos2,
   .produtos2 {
     margin-top: 10%;
-  }
-
-  #email {
-    width: 100%;
   }
 
   .depoimentos {
