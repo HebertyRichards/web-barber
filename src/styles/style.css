@@ -398,6 +398,7 @@ button[type="submit"]:hover,
   margin: 0 auto;
   background-color: #101010;
   margin-top: 5%;
+  border-radius: 20px;
 }
 
 .depoimento-item {

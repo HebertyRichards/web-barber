@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../styles/style.css";
 import clientesData from "../data/clientes.json";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -23,13 +23,26 @@ function Depoiments() {
     <div className="depoimentos">
       <h2>Depoimentos de nossos Clientes</h2>
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         spaceBetween={30}
         slidesPerView={2}
         loop={true}
+        speed={3000}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+        }}
         navigation={{
           nextEl: ".btn-next",
           prevEl: ".btn-prev",
+        }}
+        onSwiper={(swiper) => {
+          setTimeout(() => {
+            if (swiper.params.navigation) {
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }
+          }, 0); 
         }}
         breakpoints={{
           0: {
