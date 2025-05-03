@@ -37,7 +37,7 @@ body {
       rgb(0, 0, 0) 0%,
       rgba(255, 126, 95, 0) 100%
     ),
-    url("../src/assets/1.png");
+    url("../assets/1.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -50,7 +50,7 @@ body {
       rgb(0, 0, 0) 0%,
       rgba(255, 126, 95, 0) 100%
     ),
-    url("../src/assets/1.png");
+    url("../assets/1.png");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 10px;
@@ -61,7 +61,7 @@ body {
   display: block;
   width: 50px;
   height: 50px;
-  background-image: url("../src/assets/icon.png");
+  background-image: url("../assets/icon.png");
   background-size: cover;
   background-position: center;
 }
@@ -786,11 +786,11 @@ footer hr {
 }
 
 #facebook {
-  background-image: url("../src/assets/Facebook.png");
+  background-image: url("../assets/Facebook.png");
 }
 
 #instagram {
-  background-image: url("../src/assets/instagram.png");
+  background-image: url("../assets/instagram.png");
 }
 
 /* responsividade */
