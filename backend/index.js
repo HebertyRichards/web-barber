@@ -1,6 +1,8 @@
 const express = require("express"); // framework do node.js
 const mysql = require("mysql2"); // importa a biblioteca mysql para conectar back end ao banco de dados
 const nodemailer = require("nodemailer"); // biblioteca para envio de emails
+const https = require("https"); // api z api para envio whatsapp
+const Buffer = require('buffer').Buffer; // manipulação de dados binarios
 require("dotenv").config(); // arquivo para configuração de deploy
 
 const app = express();
@@ -85,7 +87,7 @@ app.post("/agendar", (req, res) => {
         return res.status(500).json({ message: "Erro ao salvar agendamento" });
       }
 
-      // modificando o texto na mensagem do email, para maior entendimento do usuario
+      // modificando o texto na mensagem do email, para maior entendimento do usuário
       const data = new Date(data_agendamento);
       const dataFormatada = data
         .toLocaleDateString("pt-BR", {
@@ -95,45 +97,78 @@ app.post("/agendar", (req, res) => {
         })
         .replace(/\//g, "-");
 
+      const mensagemConfirmacao = `
+        <h1>Agendamento Concluído</h1>
+        <p>Olá ${nome_cliente}, seu agendamento foi concluído no dia ${dataFormatada} às ${horario} com o barbeiro ${barbeiro}.</p>
+        <p>Segue o serviço agendado:</p>
+        <ul>
+          <li>${servico}</li>
+        </ul>
+        <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
+        <p>Para cancelar, acesse <a href="https://web-barber-xi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
+        <p>A barbearia Web Barber-Shop agradece a preferência. Venha ficar novo de novo!</p>
+      `;
+
       /* mensagem de email, caso a requisição de cadastro for sucesso, 
-        caso o email seja inválido ou sem cadastro, aparece a amensgaem de erro */
+        caso o email seja inválido ou sem cadastro, aparece a mensagem de erro */
       if (email) {
         const mailOptions = {
           from: "Barbearia Ramos <" + process.env.EMAIL_USER + ">",
           to: email,
           subject: "Agendamento Confirmado!",
-          html: `
-          <p>Olá ${nome_cliente}, seu agendamento foi concluído no dia <b>${dataFormatada}</b> às <b>${horario}</b> com o barbeiro <b>${barbeiro}</b>.</p>
-          <p>Segue o serviço agendado:</p>
-          <ul>
-            <li>${servico}</li>
-          </ul>
-          <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
-          <p>Para cancelar, acesse <a href="https://web-barber-phi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
-          <p>A barbearia Ramos agradece a preferência. Venha ficar novo de novo!</p>
-        `,
+          html: mensagemConfirmacao
         };
+
         transport.sendMail(mailOptions, (error, info) => {
           if (error) {
-            console.error("Erro ao enviar e-mail:", error);
+            console.error("Erro ao enviar o e-mail:", error);
             return res.status(500).json({
               message: "Agendamento salvo, mas erro ao enviar e-mail.",
             });
           }
           res.status(200).json({
             message: "Agendamento criado e e-mail enviado com sucesso!",
-            info: info.response, 
+            info: info.response,
           });
         });
-      } else {
-        return res.status(200).json({
-          message: "Agendamento criado com sucesso!",
+      }
+
+      // Enviar a mensagem para o WhatsApp usando Z-API
+      if (telefone) {
+        const options = {
+          method: "POST",
+          hostname: "api.z-api.io",
+          port: null,
+          path: `/instances/${process.env.ZAPI_INSTANCE}/token/${process.env.ZAPI_TOKEN}/send-text`,
+          headers: {
+            "client-token": process.env.ZAPI_CLIENT_TOKEN,
+            "Content-Type": "application/json",
+          },
+        };
+
+        const postData = JSON.stringify({
+          phone: telefone,
+          message: mensagemConfirmacao,
         });
+
+        const reqWhatsapp = https.request(options, (resWhatsapp) => {
+          let chunks = [];
+          resWhatsapp.on("data", (chunk) => {
+            chunks.push(chunk);
+          });
+
+          resWhatsapp.on("end", () => {
+            const body = Buffer.concat(chunks);
+            console.log("Mensagem enviada para o WhatsApp:", body.toString());
+          });
+        });
+
+        reqWhatsapp.write(postData);
+        reqWhatsapp.end();
       }
     }
   );
 });
-
 
 // rota para buscar horários já agendados para de um barbeiro em uma data específica
 app.get("/agendamentos", (req, res) => {
