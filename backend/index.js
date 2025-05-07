@@ -103,7 +103,7 @@ app.post("/agendar", (req, res) => {
           <li>${servico}</li>
         </ul>
         <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
-        <p>Para cancelar, acesse <a href="https://web-barber-xi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
+        <p>Para cancelar, acesse <a href="https://web-barber-phi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
         <p>A barbearia Web Barber-Shop agradece a preferência. Venha ficar novo de novo!</p>
       `;
 
