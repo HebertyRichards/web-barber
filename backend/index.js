@@ -1,8 +1,6 @@
 const express = require("express"); // framework do node.js
 const mysql = require("mysql2"); // importa a biblioteca mysql para conectar back end ao banco de dados
 const nodemailer = require("nodemailer"); // biblioteca para envio de emails
-const https = require("https"); // api z api para envio whatsapp
-const Buffer = require('buffer').Buffer; // manipulação de dados binarios
 require("dotenv").config(); // arquivo para configuração de deploy
 
 const app = express();
@@ -131,40 +129,6 @@ app.post("/agendar", (req, res) => {
             info: info.response,
           });
         });
-      }
-
-      // Enviar a mensagem para o WhatsApp usando Z-API
-      if (telefone) {
-        const options = {
-          method: "POST",
-          hostname: "api.z-api.io",
-          port: null,
-          path: `/instances/${process.env.ZAPI_INSTANCE}/token/${process.env.ZAPI_TOKEN}/send-text`,
-          headers: {
-            "client-token": process.env.ZAPI_CLIENT_TOKEN,
-            "Content-Type": "application/json",
-          },
-        };
-
-        const postData = JSON.stringify({
-          phone: telefone,
-          message: mensagemConfirmacao,
-        });
-
-        const reqWhatsapp = https.request(options, (resWhatsapp) => {
-          let chunks = [];
-          resWhatsapp.on("data", (chunk) => {
-            chunks.push(chunk);
-          });
-
-          resWhatsapp.on("end", () => {
-            const body = Buffer.concat(chunks);
-            console.log("Mensagem enviada para o WhatsApp:", body.toString());
-          });
-        });
-
-        reqWhatsapp.write(postData);
-        reqWhatsapp.end();
       }
     }
   );
