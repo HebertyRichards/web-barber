@@ -199,7 +199,7 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
       <p>Serviço cancelado:</p>
       <ul><li>${servico}</li></ul>
       <p>Se você tiver alguma dúvida ou precisar reagendar, entre em contato conosco.</p>
-      <p>Agradecemos por escolher a Web Barber-Shop!</p>
+      <p>Agradecemos por escolher a Barbearia Freitas0!</p>
     `;
 
     const deletarAgendamento =
@@ -217,7 +217,7 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
 
       if (email) {
         const mailOptions = {
-          from: "Web Barber-Shop <" + process.env.EMAIL_USER + ">",
+          from: "Barbearia Freitas <" + process.env.EMAIL_USER + ">",
           to: email,
           subject: "Agendamento Cancelado",
           html: mensagemCancelamento,
