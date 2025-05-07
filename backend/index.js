@@ -188,7 +188,65 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
 
     res.status(200).json({ message: "Agendamento cancelado com sucesso!" });
   });
-});
+  const agendamento = result[0]; // Obter os dados do agendamento
+  const nome_cliente = agendamento.nome_cliente;
+  const email = agendamento.email;
+  const data_agendamento = agendamento.data_agendamento;
+  const horario = agendamento.horario;
+  const barbeiro = agendamento.barbeiro;
+  const servico = agendamento.servico;
+  const sqlDelete = "DELETE FROM agendamentos WHERE id_agendamento = ?";
+
+    pool.query(sqlDelete, [idAgendamento], (errDelete, resultDelete) => {
+      if (errDelete) {
+        console.error("Erro ao deletar agendamento:", errDelete);
+        return res
+          .status(500)
+          .json({ message: "Erro ao cancelar o agendamento." });
+      }
+
+      if (resultDelete.affectedRows === 0) {
+        return res.status(404).json({ message: "Agendamento não encontrado." });
+      }
+
+      // Enviar email de confirmação de cancelamento
+      const mensagemCancelamento = `
+        <h1>Agendamento Cancelado</h1>
+        <p>Olá ${nome_cliente}, seu agendamento para o dia ${data_agendamento} às ${horario} com o barbeiro ${barbeiro} foi cancelado.</p>
+        <p>Serviço cancelado:</p>
+        <ul>
+          <li>${servico}</li>
+        </ul>
+        <p>Se você tiver alguma dúvida ou precisar reagendar, entre em contato conosco.</p>
+        <p>Agradecemos por escolher a Web Barber-Shop!</p>
+      `;
+      
+// mensagem de cancelar agendamento caso o id for encontrado se nao da erro e nao envia o email
+      if (email) {
+        const mailOptions = {
+          from: "Barbearia Ramos <" + process.env.EMAIL_USER + ">",
+          to: email,
+          subject: "Agendamento Cancelado",
+          html: mensagemCancelamento,
+        };
+
+        transport.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            console.error("Erro ao enviar o e-mail:", error);
+            return res.status(500).json({
+              message: "Agendamento cancelado, mas erro ao enviar e-mail.",
+            });
+          }
+          res.status(200).json({
+            message: "Agendamento cancelado com sucesso e e-mail enviado!",
+            info: info.response,
+          });
+        });
+      } else {
+        res.status(200).json({ message: "Agendamento cancelado com sucesso!" });
+      }
+    });
+  });
 
 // porta de conexão backend
 const port = process.env.PORT || 8080;
