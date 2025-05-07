@@ -205,13 +205,15 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
     const deletarAgendamento =
       "DELETE FROM agendamentos WHERE id_agendamento = ?";
 
-    pool.query(deletarAgendamento, [idAgendamento], (errDelete, resultDelete) => {
-      if (errDelete) {
-        console.error("Erro ao deletar agendamento:", errDelete);
-        return res
-          .status(500)
-          .json({ message: "Erro ao cancelar o agendamento." });
-      }
+      pool.query(deletarAgendamento, [idAgendamento], (errDelete, resultDelete) => {
+        if (errDelete) {
+          console.error("Erro ao deletar agendamento:", errDelete);
+          return res.status(500).json({ message: "Erro ao cancelar o agendamento." });
+        }
+      
+        if (resultDelete.affectedRows === 0) {
+          return res.status(404).json({ message: "Agendamento não encontrado." });
+        }
 
       if (email) {
         const mailOptions = {
