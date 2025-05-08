@@ -199,7 +199,7 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
       <p>Serviço cancelado:</p>
       <ul><li>${servico}</li></ul>
       <p>Se você tiver alguma dúvida ou precisar reagendar, entre em contato conosco.</p>
-      <p>Agradecemos por escolher a Barbearia Freitas0!</p>
+      <p>Agradecemos por escolher a Barbearia Freitas!</p>
     `;
 
     const deletarAgendamento =

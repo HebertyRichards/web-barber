@@ -209,10 +209,10 @@ body {
 }
 
 .contact-btn:hover,
-.Prods button:hover,
+.Prods a:hover,
 .redirect:hover,
 button[type="submit"]:hover,
-.produtos2 button:hover {
+.produtos2 a:hover {
   background-color: transparent;
   border: 1px solid rgb(245, 189, 37);
   color: rgb(245, 189, 37);
@@ -463,7 +463,7 @@ button[type="submit"]:hover,
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
 }
 
-.Prods button {
+.Prods a {
   background-color: rgb(255, 187, 0);
   padding: 20px;
   color: white;
@@ -472,6 +472,7 @@ button[type="submit"]:hover,
   cursor: pointer;
   transition: background-color 0.4s ease;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .btn-prods {
@@ -610,7 +611,7 @@ button[type="submit"] {
   margin-top: 5%;
 }
 
-.produtos2 button {
+.produtos2 a {
   margin: 0 auto;
   background-color: rgb(245, 189, 37);
   color: white;

@@ -13,7 +13,7 @@ function InfoProds() {
             <img src={item.imagem} alt={item.produto} />
             <h2>{item.produto}</h2>
             <h3>{item.preco}</h3>
-            <button>Comprar Agora</button>
+            <a href="https://bit.ly/3EWrNiw" target="_blank">Comprar Agora</a>
           </div>
         ))}
       </div>
