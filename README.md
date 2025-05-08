@@ -44,3 +44,9 @@ Desenvolver uma solução inovadora para **agendamento online de serviços em ba
 - 🤝 Melhoria no relacionamento com clientes via confirmações automáticas (estilo CRM)
 
 ---
+
+## ✏️ Infos
+
+- Hospedagem Front-End na Vercel e Back-end na Railway 
+- Deploy: https://web-barber-phi.vercel.app/
+
