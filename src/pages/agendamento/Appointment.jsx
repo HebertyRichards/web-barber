@@ -59,9 +59,22 @@ function Agendamento() {
           body: JSON.stringify(agendamento),
         }
       );
-
+  
       if (response.ok) {
         alert("Agendamento realizado com sucesso!");
+  
+        // Chamada para registrar o serviço
+        await fetch("https://web-barber-production.up.railway.app/servico/finalizar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nome_cliente: nome,
+            barbeiro,
+            servico,
+            data_servico: data,
+          }),
+        });
+  
       } else {
         const data = await response.json();
         alert(data.message || "Erro ao agendar, tente novamente.");
@@ -72,6 +85,7 @@ function Agendamento() {
     }
   };
 
+  //formatação do telefone estilo(XX)xxxxx-xxxx
   const formatarTelefone = (valor) => {
     valor = valor.replace(/\D/g, "");
 
