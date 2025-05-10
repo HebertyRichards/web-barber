@@ -263,7 +263,7 @@ app.post("/servico/finalizar", async (req, res) => {
   const valor = parseFloat(match[1].replace(",", "."));
 
   try {
-    await pool.query(
+    await pool.promise().query(
       `INSERT INTO servicos_realizados (nome_cliente, barbeiro, servico, valor, data_servico)
        VALUES (?, ?, ?, ?, ?)`,
       [nome_cliente, barbeiro, servico, valor, data_servico]
