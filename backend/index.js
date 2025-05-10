@@ -95,12 +95,16 @@ app.post("/agendar", (req, res) => {
         })
         .replace(/\//g, "-");
 
+        const listaServicos = Array.isArray(servico)
+        ? servico.map((s) => `<li>${s}</li>`).join("")
+        : `<li>${servico}</li>`;
+      
       const mensagemConfirmacao = `
         <h1>Agendamento Concluído</h1>
         <p>Olá ${nome_cliente}, seu agendamento foi concluído no dia ${dataFormatada} às ${horario} com o barbeiro ${barbeiro}.</p>
-        <p>Segue o serviço agendado:</p>
+        <p>Segue o(s) serviço(s) agendado(s):</p>
         <ul>
-          <li>${servico}</li>
+          ${listaServicos}
         </ul>
         <p>O código do seu agendamento é: <strong>${result.insertId}</strong></p>
         <p>Para cancelar, acesse <a href="https://web-barber-phi.vercel.app/cancelar-agendamento">Cancelar Agendamento</a> e insira o código.</p>
@@ -193,14 +197,17 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
       servico,
     } = agendamento;
 
-    const mensagemCancelamento = `
-      <h1>Agendamento Cancelado</h1>
-      <p>Olá ${nome_cliente}, seu agendamento para o dia ${data_agendamento} às ${horario} com o barbeiro ${barbeiro} foi cancelado.</p>
-      <p>Serviço cancelado:</p>
-      <ul><li>${servico}</li></ul>
-      <p>Se você tiver alguma dúvida ou precisar reagendar, entre em contato conosco.</p>
-      <p>Agradecemos por escolher a Barbearia Freitas!</p>
-    `;
+    const listaServicos = Array.isArray(servico)
+  ? servico.map((s) => `<li>${s}</li>`).join("")
+  : `<li>${servico}</li>`;
+   const mensagemCancelamento = `
+  <h1>Agendamento Cancelado</h1>
+  <p>Olá ${nome_cliente}, seu agendamento para o dia ${data_agendamento} às ${horario} com o barbeiro ${barbeiro} foi cancelado.</p>
+  <p>Serviço(s) cancelado(s):</p>
+  <ul>${listaServicos}</ul>
+  <p>Se você tiver alguma dúvida ou precisar reagendar, entre em contato conosco.</p>
+  <p>Agradecemos por escolher a Barbearia Freitas!</p>
+`;
 
     const deletarAgendamento =
       "DELETE FROM agendamentos WHERE id_agendamento = ?";

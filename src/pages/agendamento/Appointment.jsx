@@ -15,7 +15,7 @@ function Agendamento() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [horario, setHorario] = useState("");
-  const [servico, setServico] = useState("");
+  const [servico, setServico] = useState([]);
   const [barbeiro, setBarbeiro] = useState("");
   const [horariosIndisponiveis, setHorariosIndisponiveis] = useState([]);
 
@@ -247,6 +247,7 @@ function Agendamento() {
             <div className="cut-info">
               <select
                 id="servico"
+                multiple
                 name="servico"
                 required
                 value={servico}
