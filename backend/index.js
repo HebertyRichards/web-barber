@@ -10,7 +10,7 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://web-barber-phi.vercel.app"
+   "https://web-barber-phi.vercel.app"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
@@ -243,6 +243,92 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
   });
 });
 
+
+//rota de dados dos barbeiros (envia dados qual barbeiro realizou o serviço, qual cliente e quanto foi o custo)
+app.post("/servico/finalizar", async (req, res) => {
+  const { nome_cliente, barbeiro, servico, data_servico } = req.body;
+
+  const match = servico.match(/R\$ ?(\d+,\d{2})/);
+  if (!match) {
+    return res.status(400).json({ message: "Valor do serviço inválido." });
+  }
+
+  const valor = parseFloat(match[1].replace(",", "."));
+
+  try {
+    await pool.query(
+      `INSERT INTO servicos_realizados (nome_cliente, barbeiro, servico, valor, data_servico)
+       VALUES (?, ?, ?, ?, ?)`,
+      [nome_cliente, barbeiro, servico, valor, data_servico]
+    );
+    res.json({ message: "Serviço registrado com sucesso." });
+  } catch (error) {
+    console.error("Erro ao registrar serviço:", error);
+    res.status(500).json({ message: "Erro ao registrar serviço." });
+  }
+});
+
+// rota para visualizar os dados dos barbeiros e seus serviços prestados(DADOS APENAS DE 1 PESSOA)
+app.get("/relatorio/barbeiro/:nome", async (req, res) => {
+  const { nome } = req.params;
+
+  try {
+    const [dados] = await pool.query(
+      `SELECT nome_cliente, servico, valor FROM servicos_realizados WHERE barbeiro = ?`,
+      [nome]
+    );
+
+    const totalServicos = dados.length;
+    const totalValor = dados.reduce((acc, cur) => acc + cur.valor, 0);
+
+    res.json({
+      barbeiro: nome,
+      totalServicos,
+      totalValor: totalValor.toFixed(2),
+      servicosPorCliente: dados
+    });
+  } catch (error) {
+    console.error("Erro ao buscar relatório:", error);
+    res.status(500).json({ message: "Erro ao buscar relatório." });
+  }
+});
+
+// ROTA PARA MOSTRAR TODOS OS DADOS DOS BARBEIROS
+app.get("/relatorio/todos", async (req, res) => {
+  try {
+    const [dados] = await pool.query(`
+      SELECT barbeiro, nome_cliente, servico, valor
+      FROM servicos_realizados
+    `);
+
+    const relatorio = {};
+
+    for (const item of dados) {
+      const { barbeiro, nome_cliente, servico, valor } = item;
+
+      if (!relatorio[barbeiro]) {
+        relatorio[barbeiro] = {
+          totalServicos: 0,
+          totalValor: 0,
+          servicosPorCliente: []
+        };
+      }
+
+      relatorio[barbeiro].totalServicos++;
+      relatorio[barbeiro].totalValor += valor;
+      relatorio[barbeiro].servicosPorCliente.push({
+        nome_cliente,
+        servico,
+        valor
+      });
+    }
+
+    res.json(relatorio);
+  } catch (error) {
+    console.error("Erro ao buscar relatório geral:", error);
+    res.status(500).json({ message: "Erro ao buscar relatório geral." });
+  }
+});
 
 // porta de conexão backend
 const port = process.env.PORT || 8080;

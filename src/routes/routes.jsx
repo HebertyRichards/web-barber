@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Home from "./pages/index/Home";
-import Agendamento from "./pages/agendamento/Appointment";
-import Produtos from "./pages/produtos/Product";
-import Servicos from "./pages/servicos/Service";
-import CancelarAgendamento from "./pages/cancelar-agendamento/CancelAppointment";
-import Assinatura from "./pages/assinaturas/Signature";
-import AssinaturaBronze from "./pages/assinatura-bronze/Bronze";
-import AssinaturaPrata from "./pages/assinatura-prata/Silver";
-import AssinaturaOuro from "./pages/assinatura-ouro/Gold";
+import Home from "../pages/index/Home";
+import Agendamento from "../pages/agendamento/Appointment";
+import Produtos from "../pages/produtos/Product";
+import Servicos from "../pages/servicos/Service";
+import CancelarAgendamento from "../pages/cancelar-agendamento/CancelAppointment";
+import Assinatura from "../pages/assinaturas/Signature";
+import AssinaturaBronze from "../pages/assinatura-bronze/Bronze";
+import AssinaturaPrata from "../pages/assinatura-prata/Silver";
+import AssinaturaOuro from "../pages/assinatura-ouro/Gold";
 
 function AppRoutes() {
   return (

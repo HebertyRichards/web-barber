@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Active from "../../header/Active";
 import Footer from "../../footer/Footer";
 import planosData from "../../data/planos.json";
-import "./silver.css";
+import "../../styles/silver.css";
 
 const prata = planosData.find((plano) => plano.classe === "silver");
 
