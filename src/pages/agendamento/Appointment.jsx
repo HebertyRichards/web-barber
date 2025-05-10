@@ -179,7 +179,7 @@ function Agendamento() {
     nome.trim() !== "" &&
     data.trim() !== "" &&
     horario.trim() !== "" &&
-    servico.trim() !== "" &&
+    servico.length > 0 &&
     barbeiro.trim() !== "" &&
     (telefone.trim() !== "" || email.trim() !== "");
   return (
@@ -245,37 +245,35 @@ function Agendamento() {
               </select>
             </div>
             <div className="cut-info">
-              <select
-                id="servico"
-                multiple
-                name="servico"
-                required
-                value={servico}
-                onChange={(e) => {
-                  const selected = Array.from(e.target.selectedOptions).map(option => option.value);
-                  setServico(selected);
-                }}                
-              >
-                <option value="">Selecione</option>
-                <option value="Corte - R$30,00">Corte - R$30,00</option>
-                <option value="Barba - R$25,00">Barba - R$25,00</option>
-                <option value="Bigode - R$5,00">Bigode - R$5,00</option>
-                <option value="Corte + Barba -  R$50,00">
-                  Corte + Barba - R$50,00
-                </option>
-                <option value="Corte + Bigode+ Sobrancelha - R$40,00 ">
-                  Corte + Bigode + Sobrancelha - R$40,00
-                </option>
-                <option value="Penteado - R$20,00">Penteado - R$20,00</option>
-                <option value="Máquina Geral - R$20,00">
-                  Máquina Geral - R$20,00
-                </option>
-                <option value="Luzes - R$65,00">Luzes - R$65,00</option>
-                <option value="Hidratação - R$15,00">
-                  Hidratação - R$15,00
-                </option>
-              </select>
-            </div>
+  <p>Selecione os serviços:</p>
+  {[
+    "Corte - R$30,00",
+    "Barba - R$25,00",
+    "Bigode - R$5,00",
+    "Corte + Barba - R$50,00",
+    "Corte + Bigode + Sobrancelha - R$40,00",
+    "Penteado - R$20,00",
+    "Máquina Geral - R$20,00",
+    "Luzes - R$65,00",
+    "Hidratação - R$15,00",
+  ].map((item) => (
+    <label key={item} style={{ display: "block", marginBottom: "5px" }}>
+      <input
+        type="checkbox"
+        value={item}
+        checked={servico.includes(item)}
+        onChange={(e) => {
+          if (e.target.checked) {
+            setServico((prev) => [...prev, item]);
+          } else {
+            setServico((prev) => prev.filter((val) => val !== item));
+          }
+        }}
+      />
+      {" "}{item}
+    </label>
+  ))}
+</div>
             <div className="barber-infos">
               <select
                 id="barbeiro"
