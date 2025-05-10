@@ -333,7 +333,11 @@ app.get("/relatorio/todos", async (req, res) => {
     res.json(relatorio);
   } catch (error) {
     console.error("Erro ao buscar relatório geral:", error);
-    res.status(500).json({ message: "Erro ao buscar relatório geral." });
+    res.status(500).json({ 
+      message: "Erro ao buscar relatório geral.",
+      erro: error.message,
+      stack: error.stack
+    });
   }
 });
 
