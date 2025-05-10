@@ -251,7 +251,10 @@ function Agendamento() {
                 name="servico"
                 required
                 value={servico}
-                onChange={(e) => setServico(e.target.value)}
+                onChange={(e) => {
+                  const selected = Array.from(e.target.selectedOptions).map(option => option.value);
+                  setServico(selected);
+                }}                
               >
                 <option value="">Selecione</option>
                 <option value="Corte - R$30,00">Corte - R$30,00</option>
