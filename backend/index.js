@@ -303,7 +303,7 @@ app.get("/relatorio/barbeiro/:nome", async (req, res) => {
 // ROTA PARA MOSTRAR TODOS OS DADOS DOS BARBEIROS
 app.get("/relatorio/todos", async (req, res) => {
   try {
-    const [dados] = await pool.query(`
+    const [dados] = await pool.promise().query(`
       SELECT barbeiro, nome_cliente, servico, valor
       FROM servicos_realizados
     `);
