@@ -322,18 +322,22 @@ app.get("/relatorio/todos", async (req, res) => {
       }
 
       relatorio[barbeiro].totalServicos++;
-      relatorio[barbeiro].totalValor += valor;
+      relatorio[barbeiro].totalValor += Number(valor); 
       relatorio[barbeiro].servicosPorCliente.push({
         nome_cliente,
         servico,
-        valor
+        valor: Number(valor).toFixed(2) 
       });
+    }
+
+    for (const barbeiro in relatorio) {
+      relatorio[barbeiro].totalValor = relatorio[barbeiro].totalValor.toFixed(2);
     }
 
     res.json(relatorio);
   } catch (error) {
     console.error("Erro ao buscar relatório geral:", error);
-    res.status(500).json({ 
+    res.status(500).json({
       message: "Erro ao buscar relatório geral.",
       erro: error.message,
       stack: error.stack
