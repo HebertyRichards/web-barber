@@ -191,6 +191,7 @@ body {
 .services h2 {
   font-size: 3rem;
   font-weight: bold;
+  font-family:"Impactt", sans-serif;
 }
 
 .slider p {
@@ -254,6 +255,7 @@ button[type="submit"]:hover,
 
 .sobre h2 {
   font-size: 2.5em;
+  font-family:"Impactt", sans-serif;
 }
 
 .sobre p {
@@ -298,6 +300,10 @@ button[type="submit"]:hover,
   margin: 0 auto;
   margin-top: 5%;
   text-align: center;
+}
+
+.services H2 {
+  font-family:"Impactt", sans-serif;
 }
 
 .services p {
@@ -426,10 +432,14 @@ button[type="submit"]:hover,
   margin-bottom: 10px;
 }
 
+.depoimentos h2 {
+  font-family:"Impactt", sans-serif;
+}
 /* mapa na pagina principal */
 .maps {
   text-align: center;
   margin-top: 7%;
+  font-family:"Impactt", sans-serif;
 }
 
 .leaflet-container {
@@ -445,6 +455,8 @@ button[type="submit"]:hover,
 
 .produtos {
   text-align: center;
+  font-family:"Impactt", sans-serif;
+  margin-top: 5%;
 }
 
 .products {
