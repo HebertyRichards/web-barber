@@ -138,6 +138,10 @@ app.post("/agendar", (req, res) => {
             info: info.response,
           });
         });
+      } else {
+        res.status(200).json({
+          message: "Agendamento criado com sucesso! Nenhum e-mail enviado porque o campo 'email' não foi preenchido.",
+        });
       }
     }
   );
@@ -351,7 +355,7 @@ app.get("/relatorio/todos", async (req, res) => {
 });
 
 // porta de conexão backend
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
