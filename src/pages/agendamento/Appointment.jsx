@@ -45,7 +45,7 @@ function Agendamento() {
       email,
       data_agendamento: data,
       horario,
-      servico,
+      servico: servico.join(", "),
       barbeiro,
     };
 
