@@ -257,6 +257,11 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
 app.post("/servico/finalizar", async (req, res) => {
   const { nome_cliente, barbeiro, servico, data_servico } = req.body;
 
+  if (typeof servico !== "string") {
+    console.log("Valor inválido recebido em 'servico':", servico);
+    return res.status(400).json({ message: "O campo 'servico' deve ser uma string." });
+  }
+
   const match = servico.match(/R\$ ?(\d+,\d{2})/);
   if (!match) {
     return res.status(400).json({ message: "Valor do serviço inválido." });
@@ -348,7 +353,7 @@ app.get("/relatorio/todos", async (req, res) => {
 });
 
 // porta de conexão backend
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
