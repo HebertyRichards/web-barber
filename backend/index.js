@@ -257,23 +257,30 @@ app.delete("/cancelar-agendamento/:id", (req, res) => {
 app.post("/servico/finalizar", async (req, res) => {
   const { nome_cliente, barbeiro, servico, data_servico } = req.body;
 
-  if (typeof servico !== "string") {
-    console.log("Valor inválido recebido em 'servico':", servico);
-    return res.status(400).json({ message: "O campo 'servico' deve ser uma string." });
+  if (!servico || (Array.isArray(servico) && servico.length === 0)) {
+    return res.status(400).json({ message: "É necessário selecionar pelo menos um serviço." });
   }
 
-  const match = servico.match(/R\$ ?(\d+,\d{2})/);
-  if (!match) {
+  const servicos = Array.isArray(servico) ? servico : [servico];
+  const matchValores = servicos
+    .map((s) => {
+      const match = s.match(/R\$ ?(\d+,\d{2})/);
+      return match ? parseFloat(match[1].replace(",", ".")) : null;
+    })
+    .filter((v) => v !== null);
+
+  if (matchValores.length === 0) {
     return res.status(400).json({ message: "Valor do serviço inválido." });
   }
 
-  const valor = parseFloat(match[1].replace(",", "."));
+  const valorTotal = matchValores.reduce((acc, cur) => acc + cur, 0);
+  const servicoTexto = servicos.join(" + ");
 
   try {
     await pool.promise().query(
       `INSERT INTO servicos_realizados (nome_cliente, barbeiro, servico, valor, data_servico)
        VALUES (?, ?, ?, ?, ?)`,
-      [nome_cliente, barbeiro, servico, valor, data_servico]
+      [nome_cliente, barbeiro, servicoTexto, valorTotal, data_servico]
     );
     res.json({ message: "Serviço registrado com sucesso." });
   } catch (error) {
