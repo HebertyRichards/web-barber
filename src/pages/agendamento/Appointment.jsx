@@ -125,15 +125,19 @@ useAppointmenTitle("Agendamento - Barbearia Ramos")
                 required
               />
               <select
-                id="horario"
-                name="horario"
-                required
-                value={horario}
-                onChange={(e) => setHorario(e.target.value)}
+              id="horario"
+              name="horario"
+              required
+              value={horario}
+              onChange={(e) => setHorario(e.target.value)}
               >
                 <option value="">Horário</option>
-                {renderHorarios()}
-              </select>
+                {renderHorarios().map((horario) => (
+                  <option key={horario} value={horario}>
+                    {horario}
+                    </option>
+                  ))}
+                  </select>
             </div>
             <div className="cut-info">
   <p>Selecione os serviços:</p>
