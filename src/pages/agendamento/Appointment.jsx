@@ -1,178 +1,69 @@
-import { useState, useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
+import { enviarAgendamento } from "../../services/appointmentService";
+import { useAppointmenTitle } from "../../hooks/useAppointmentTitle";
+import { useAgendamento } from "../../hooks/useAppointment";
+import { formatarTel } from "../../utils/formaterTel";
+import { useBuscarHorariosIndisponiveis } from "../../services/appointmentService";
+import { gerarHorariosDisponiveis } from "../../utils/horarios";
+
 import "../../styles/style.css";
 
 // mudar título da página
 function Agendamento() {
-  useEffect(() => {
-    document.title = "Agendamento - Barbearia Ramos";
-  }, []);
+useAppointmenTitle("Agendamento - Barbearia Ramos")
 
-  // estados para guardar os dados cadastrados
-  const [data, setData] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [horario, setHorario] = useState("");
-  const [servico, setServico] = useState([]);
-  const [barbeiro, setBarbeiro] = useState("");
-  const [horariosIndisponiveis, setHorariosIndisponiveis] = useState([]);
+  // retornando os estados do hook useagendamento
+  const {
+    data,
+    telefone,
+    nome,
+    email,
+    horario,
+    servico,
+    barbeiro,
+    horariosIndisponiveis,
+    setData,
+    setTelefone,
+    setNome,
+    setEmail,
+    setHorario,
+    setServico,
+    setBarbeiro,
+    dataMinima,
+    setHorariosIndisponiveis
+  } = useAgendamento();
 
-  // pega a data de agora e aplica no campo de horario no agendamento para evitar erros e marcações no passado
-  useEffect(() => {
-    setData(getDataAtual());
-  }, []);
-
-  function getDataAtual() {
-    return new Date().toISOString().split("T")[0];
-  }
-
+  useBuscarHorariosIndisponiveis(setHorariosIndisponiveis);
   // enviar agendamento
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //formatar o telefone
+  // campos e-mail ou telefone, um dos dois é obrigatório
     if (!telefone && !email) {
       alert("Por favor, preencha o telefone ou o email.");
       return;
     }
 
-    // credenciais do banco de dados
-    const agendamento = {
-      nome_cliente: nome,
-      telefone,
-      email,
-      data_agendamento: data,
-      horario,
-      servico: servico.join(", "),
-      barbeiro,
-    };
-
-    //envia dados para o banco de dados
+    // credenciais do banco de dados e api para envio
     try {
-      const response = await fetch(
-        "https://web-barber-production.up.railway.app/agendar",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(agendamento),
-        }
-      );
+      await enviarAgendamento({
+        nome,
+        telefone,
+        email,
+        data,
+        horario,
+        servico,
+        barbeiro,
+      });
   
-      if (response.ok) {
-        alert("Agendamento realizado com sucesso!");
-  
-        // Chamada para registrar o serviço
-        await fetch("https://web-barber-production.up.railway.app/servico/finalizar", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            nome_cliente: nome,
-            barbeiro,
-            servico,
-            data_servico: data,
-          }),
-        });
-  
-      } else {
-        const data = await response.json();
-        alert(data.message || "Erro ao agendar, tente novamente.");
-      }
+      alert("Agendamento e serviço registrados com sucesso!");
     } catch (error) {
-      console.error("Erro ao enviar agendamento:", error);
-      alert("Erro ao enviar o agendamento. Tente novamente.");
+      alert(error.message || "Erro ao enviar agendamento.");
     }
   };
 
-  //formatação do telefone estilo(XX)xxxxx-xxxx
-  const formatarTelefone = (valor) => {
-    valor = valor.replace(/\D/g, "");
-
-    if (valor.length > 2) {
-      valor = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
-    }
-    if (valor.length > 10) {
-      valor = `${valor.slice(0, 10)}-${valor.slice(10, 14)}`;
-    }
-
-    return valor;
-  };
-
-  // busca qual o horario aquele barbeiro tem disponivel no dia, evitar overbooking
-  useEffect(() => {
-    async function buscarHorariosIndisponiveis() {
-      if (data && barbeiro) {
-        try {
-          const res = await fetch(
-            `https://web-barber-production.up.railway.app/agendamentos?data=${data}&barbeiro=${encodeURIComponent(
-              barbeiro
-            )}`
-          );
-          const json = await res.json();
-          setHorariosIndisponiveis(json.horariosIndisponiveis || []);
-        } catch (err) {
-          console.error("Erro ao buscar horários indisponíveis:", err);
-        }
-      }
-    }
-
-    buscarHorariosIndisponiveis();
-  }, [data, barbeiro]);
-
-  // filtra todos os horarios e gera os horarios disponiveis
-  const renderHorarios = () => {
-    const horarios = [
-      "08:00",
-      "08:30",
-      "09:00",
-      "09:30",
-      "10:00",
-      "10:30",
-      "11:00",
-      "11:30",
-      "12:00",
-      "12:30",
-      "13:00",
-      "13:30",
-      "14:00",
-      "14:30",
-      "15:00",
-      "15:30",
-      "16:00",
-      "16:30",
-      "17:00",
-      "17:30",
-      "18:00",
-      "18:30",
-      "19:00",
-      "19:30",
-    ];
-
-    //formatar a hora em Horas:Minutos e formatar a data em YYYY-MM-DD
-    const horaAtual = new Date();
-    const horaAtualFormatada = `${String(horaAtual.getHours()).padStart(
-      2,
-      "0"
-    )}:${String(horaAtual.getMinutes()).padStart(2, "0")}`;
-    const dataAtual = `${horaAtual.getFullYear()}-${String(
-      horaAtual.getMonth() + 1
-    ).padStart(2, "0")}-${String(horaAtual.getDate()).padStart(2, "0")}`;
-    // consulta seo dia do agendamento é mesmo de hoje, se for menor remove da lista
-    const isHoje = data === dataAtual;
-
-    // remove automaticamente horarios indisponiveis  e criação de option para cada horario disponivel
-    return horarios
-      .filter((horario) => {
-        if (isHoje && horario <= horaAtualFormatada) return false;
-        return !horariosIndisponiveis.includes(horario);
-      })
-      .map((horario) => (
-        <option key={horario} value={horario}>
-          {horario}
-        </option>
-      ));
-  };
+  const renderHorarios = () => gerarHorariosDisponiveis(data, horariosIndisponiveis);
 
   // lógica para deixar botão inutilizavel caso os campos não sejam preenchidos "required"
   const isFormValid =
@@ -199,7 +90,7 @@ function Agendamento() {
                 name="telefone"
                 placeholder="Telefone com DD"
                 value={telefone}
-                onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
+                onChange={(e) => setTelefone(formatarTel(e.target.value))}
               />
             </div>
             <div className="name-info">
@@ -229,7 +120,7 @@ function Agendamento() {
                 name="data"
                 id="date"
                 value={data}
-                min={getDataAtual()}
+                min={dataMinima}
                 onChange={(e) => setData(e.target.value)}
                 required
               />

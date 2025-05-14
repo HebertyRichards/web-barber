@@ -1,11 +1,10 @@
-import Active from "../../header/Active";
-import SliderText from "../../components/SliderText";
-import Sobre from "../../components/Sobre";
-import MainProduct from "../../components/MainProduct";
-import Footer from "../../footer/Footer";
-import Mapa from "../../components/Maps";
-import InfoProds from "../../components/Prods";
-import Depoiments from "../../components/Depoiments";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
+import SliderText from "./SliderText";
+import MainProduct from "./MainProduct";
+import Mapa from "./Maps";
+import InfoProds from "./Prods";
+import Depoiments from "./Depoiments";
 import "../../styles/style.css";
 
 function Home() {
@@ -15,7 +14,6 @@ function Home() {
         <Active />
         <SliderText />
       </div>
-      <Sobre />
       <MainProduct />
       <Mapa />
       <InfoProds />

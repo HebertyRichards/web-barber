@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import SideBar from "../components/SideBar";
-import SideBar2 from "../components/SideBar2";
+import SideBar from "./SideBar";
+import SideBar2 from "./SideBar2";
 
 const Active = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);

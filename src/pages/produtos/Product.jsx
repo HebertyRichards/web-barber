@@ -1,12 +1,10 @@
-import { useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import { useProductTitle } from "../../hooks/useProduct";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
 import produtosData from "../../data/produtos.json";
 
 function Produtos() {
-  useEffect(() => {
-    document.title = "Produtos - Barbearia Ramos";
-  }, []);
+useProductTitle("Produtos - Barbearia Ramos")
 
   return (
     <>

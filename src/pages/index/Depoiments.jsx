@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import "../styles/style.css";
-import clientesData from "../data/clientes.json";
+import "../../styles/style.css";
+import clientesData from "../../data/clientes.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";

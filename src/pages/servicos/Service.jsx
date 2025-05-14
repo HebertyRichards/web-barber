@@ -1,12 +1,10 @@
-import { useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import { useServiceTitle } from "../../hooks/useService";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
 import servicosData from "../../data/servicos.json";
 
 function Servicos() {
-  useEffect(() => {
-    document.title = "Serviços - Barbearia Ramos";
-  }, []);
+useServiceTitle("Serviços - Barbearia Ramos")
 
   return (
     <>

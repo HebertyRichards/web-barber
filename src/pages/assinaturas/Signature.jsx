@@ -1,12 +1,10 @@
-import { useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import { useSignatureTitle } from "../../hooks/useSignature";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
 import planosData from "../../data/planos.json";
 
 function Assinatura() {
-  useEffect(() => {
-    document.title = "Assinatura - Barbearia Ramos";
-  }, []);
+useSignatureTitle("Produtos - Barbearia Ramos")
 
   return (
     <>

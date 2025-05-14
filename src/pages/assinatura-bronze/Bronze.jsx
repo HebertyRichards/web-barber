@@ -1,15 +1,14 @@
-import { useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import { useBronzeTitle } from "../../hooks/useBronze";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
 import planosData from "../../data/planos.json";
 import "../../styles/bronze.css";
 
 const bronze = planosData.find((plano) => plano.classe === "bronze");
 
 function AssinaturaBronze() {
-  useEffect(() => {
-    document.title = "Assinatura Bronze - Barbearia Ramos";
-  }, []);
+useBronzeTitle("Produtos - Barbearia Ramos")
+
   return (
     <>
       <div className="back2">

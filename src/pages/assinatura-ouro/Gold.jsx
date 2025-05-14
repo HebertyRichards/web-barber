@@ -1,15 +1,14 @@
-import { useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import { useGoldTitle } from "../../hooks/useGold";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
 import planosData from "../../data/planos.json";
 import "../../styles/gold.css";
 
 const ouro = planosData.find((plano) => plano.classe === "gold");
 
 function AssinaturaOuro() {
-  useEffect(() => {
-    document.title = "Assinatura Ouro - Barbearia Ramos";
-  }, []);
+useGoldTitle("Produtos - Barbearia Ramos")
+
   return (
     <>
       <div className="back2">

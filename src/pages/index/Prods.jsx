@@ -1,5 +1,5 @@
-import "../styles/style.css";
-import produtosData from "../data/produtos.json";
+import "../../styles/style.css";
+import produtosData from "../../data/produtos.json";
 
 function InfoProds() {
   return (

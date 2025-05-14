@@ -1,40 +1,24 @@
-import { useState, useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import { useState } from "react";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
+import { useAppointmentCancelTitle } from "../../hooks/useCancelAppointment";
+import { CancelAppoint } from "../../services/cancelAppointmentService";
 
 function CancelarAgendamento() {
-  useEffect(() => {
-    document.title = "Cancelar Agendamento - Barbearia Ramos";
-  }, []);
+useAppointmentCancelTitle("Produtos - Barbearia Ramos")
 
   const [idAgendamento, setIdAgendamento] = useState("");
   const [mensagem, setMensagem] = useState("");
 
   const handleCancel = async (e) => {
     e.preventDefault();
-    if (!idAgendamento) {
-      setMensagem("Por favor, informe o ID do agendamento");
-      return;
-    }
 
     try {
-      const response = await fetch(
-        `https://web-barber-production.up.railway.app/cancelar-agendamento/${idAgendamento}`,
-        {
-          method: "DELETE",
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMensagem("Agendamento cancelado com sucesso.");
-        setIdAgendamento("");
-      } else {
-        setMensagem(data.message || "Erro ao cancelar o agendamento.");
-      }
+      await CancelAppoint(idAgendamento);
+      setMensagem("Agendamento cancelado com sucesso.");
+      setIdAgendamento("");
     } catch (error) {
-      setMensagem("Erro ao conectar com o servidor.");
+      setMensagem(error.message);
       console.error(error);
     }
   };

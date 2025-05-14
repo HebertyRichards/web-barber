@@ -1,15 +1,13 @@
-import { useEffect } from "react";
-import Active from "../../header/Active";
-import Footer from "../../footer/Footer";
+import { useSilverTitle } from "../../hooks/useSilver";
+import Active from "../../components/Active";
+import Footer from "../../components/Footer";
 import planosData from "../../data/planos.json";
 import "../../styles/silver.css";
 
 const prata = planosData.find((plano) => plano.classe === "silver");
 
 function AssinaturaPrata() {
-  useEffect(() => {
-    document.title = "Assinatura Prata - Barbearia Ramos";
-  }, []);
+useSilverTitle("Produtos - Barbearia Ramos")
   return (
     <>
       <div className="back2">
