@@ -14,6 +14,8 @@ consign()
 .then("./routes")       
 .into(app);
 
+console.log("Controllers carregados:", app.controllers);
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
