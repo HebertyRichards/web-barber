@@ -39,6 +39,6 @@ export function useAgendamento() {
     setServico,
     setBarbeiro,
     setHorariosIndisponiveis,
-    dataMinima: getDataAtual()
+    dataMinima: getDataAtual(),
   };
 }
