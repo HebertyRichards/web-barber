@@ -1,3 +1,4 @@
+require("dotenv").config();
 const transport = require("../config/email");
 
 async function enviarEmail(

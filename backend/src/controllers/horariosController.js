@@ -1,7 +1,7 @@
 const pool = require("../config/database");
 
 module.exports = {
-  //lógica para horarios disponiveis
+
   listarHorarios: async (req, res) => {
     const { data, barbeiro } = req.query;
 

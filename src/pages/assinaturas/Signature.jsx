@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import planosData from "../../data/planos.json";
 
 function Assinatura() {
-useSignatureTitle("Produtos - Barbearia Ramos")
+useSignatureTitle("Assinaturas - Barbearia Ramos")
 
   return (
     <>

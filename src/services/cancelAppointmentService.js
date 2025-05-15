@@ -8,7 +8,14 @@ export async function CancelAppoint(idAgendamento) {
       method: "DELETE",
     });
 
-    const data = await response.json();
+    const contentType = response.headers.get("content-type");
+    let data;
+    if (contentType && contentType.includes("application/json")) {
+      data = await response.json();
+    } else {
+      const text = await response.text();
+      throw new Error(`Erro inesperado: ${text}`);
+    }
 
     if (!response.ok) {
       throw new Error(data.message || "Erro ao cancelar o agendamento.");

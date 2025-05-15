@@ -1,7 +1,6 @@
 const pool = require("../config/database");
 const { enviarEmailCancelamento } = require("../services/cancelEmailService");
 
-//lógica para cancelar o agendamento
 module.exports = {
   cancelarAgendamento: async (req, res) => {
     const idAgendamento = req.params.id;

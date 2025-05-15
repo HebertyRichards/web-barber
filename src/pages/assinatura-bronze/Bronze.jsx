@@ -7,7 +7,7 @@ import "../../styles/bronze.css";
 const bronze = planosData.find((plano) => plano.classe === "bronze");
 
 function AssinaturaBronze() {
-useBronzeTitle("Produtos - Barbearia Ramos")
+useBronzeTitle("Assinatura Bronze - Barbearia Ramos")
 
   return (
     <>

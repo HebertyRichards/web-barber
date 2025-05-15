@@ -7,7 +7,7 @@ import "../../styles/gold.css";
 const ouro = planosData.find((plano) => plano.classe === "gold");
 
 function AssinaturaOuro() {
-useGoldTitle("Produtos - Barbearia Ramos")
+useGoldTitle("Assinatura Ouro - Barbearia Ramos")
 
   return (
     <>

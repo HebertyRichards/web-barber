@@ -5,25 +5,29 @@ import { useAppointmentCancelTitle } from "../../hooks/useCancelAppointment";
 import { CancelAppoint } from "../../services/cancelAppointmentService";
 
 function CancelarAgendamento() {
-useAppointmentCancelTitle("Produtos - Barbearia Ramos")
+  useAppointmentCancelTitle("Cancelar Agendamento - Barbearia Ramos");
 
   const [idAgendamento, setIdAgendamento] = useState("");
   const [mensagem, setMensagem] = useState("");
+  const [erro, setErro] = useState("");
 
   const handleCancel = async (e) => {
     e.preventDefault();
+    setMensagem("");
+    setErro("");
 
     try {
-      await CancelAppoint(idAgendamento);
-      setMensagem("Agendamento cancelado com sucesso.");
+      const resposta = await CancelAppoint(idAgendamento);
+      setMensagem(resposta.message || "Agendamento cancelado com sucesso.");
       setIdAgendamento("");
     } catch (error) {
-      setMensagem(error.message);
+      setErro(error.message || "Erro ao cancelar o agendamento.");
       console.error(error);
     }
   };
 
   const cancelFormValid = idAgendamento.trim() !== "";
+
   return (
     <>
       <div className="back2">
@@ -47,6 +51,7 @@ useAppointmentCancelTitle("Produtos - Barbearia Ramos")
             </button>
           </form>
           {mensagem && <p>{mensagem}</p>}
+          {erro && <p>{erro}</p>}
         </div>
       </div>
       <Footer />

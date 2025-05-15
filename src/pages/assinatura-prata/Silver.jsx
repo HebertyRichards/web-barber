@@ -7,7 +7,7 @@ import "../../styles/silver.css";
 const prata = planosData.find((plano) => plano.classe === "silver");
 
 function AssinaturaPrata() {
-useSilverTitle("Produtos - Barbearia Ramos")
+useSilverTitle("Assinatura Prata - Barbearia Ramos")
   return (
     <>
       <div className="back2">

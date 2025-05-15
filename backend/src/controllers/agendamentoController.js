@@ -1,7 +1,6 @@
 const pool = require("../config/database");
 const { enviarEmail } = require("../services/emailService");
 
-// logíca de agendamento e envio de emails
 module.exports = {
   criarAgendamento: async (req, res) => {
     const {
