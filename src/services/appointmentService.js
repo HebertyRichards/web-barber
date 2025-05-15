@@ -31,12 +31,15 @@ export async function enviarAgendamento({
       body: JSON.stringify(agendamento),
     });
 
-    if (response.ok) {
-      const data = await response.json();
-      throw new Error(data.message || "Erro ao agendar.");
+    if (!response.ok) {
+      const text = await response.text();
+      console.error("Erro na resposta do backend:", text);
+      throw new Error(
+        `Erro ao agendar: ${response.status} ${response.statusText}`
+      );
     }
 
-    const responseFinalizar = await fetch(`${API_BARBER}`, {
+    const responseFinalizar = await fetch(API_BARBER, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
