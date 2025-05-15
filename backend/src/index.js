@@ -10,8 +10,8 @@ app.use(corsMiddleware);
 
 consign()
 .include("./config")
-.then("./controllers")
-.then("./routes")
+.then("./controllers")  
+.then("./routes")       
 .into(app);
 
 const port = process.env.PORT || 8080;

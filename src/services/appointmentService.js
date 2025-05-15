@@ -20,9 +20,8 @@ export async function enviarAgendamento({
     barbeiro,
   };
 
-  const API_BASE = "https://web-barber-production.up.railway.app/agendar";
-  const API_BARBER =
-    "https://web-barber-production.up.railway.app/servico/finalizar";
+  const API_BASE = "web-barber-production.up.railway.app/agendar";
+  const API_BARBER = "web-barber-production.up.railway.appservico/finalizar";
 
   try {
     const response = await fetch(API_BASE, {
@@ -66,7 +65,7 @@ export function useBuscarHorariosIndisponiveis() {
   useEffect(() => {
     async function buscarHorariosIndisponiveis() {
       if (data && barbeiro) {
-        const API_BARBERHOUR = `https://web-barber-production.up.railway.app/agendamentos?data=${data}&barbeiro=${encodeURIComponent(
+        const API_BARBERHOUR = `web-barber-production.up.railway.appagendamentos?data=${data}&barbeiro=${encodeURIComponent(
           barbeiro
         )}`;
 
