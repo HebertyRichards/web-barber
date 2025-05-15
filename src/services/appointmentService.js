@@ -20,15 +20,17 @@ export async function enviarAgendamento({
     barbeiro,
   };
 
-  const API_BASE = "web-barber-production.up.railway.app/agendar";
-  const API_BARBER = "web-barber-production.up.railway.appservico/finalizar";
-
   try {
-    const response = await fetch(API_BASE, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(agendamento),
-    });
+    const response = await fetch(
+      "https://web-barber-production.up.railway.app/agendar",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(agendamento),
+      }
+    );
 
     if (!response.ok) {
       const text = await response.text();
@@ -38,16 +40,19 @@ export async function enviarAgendamento({
       );
     }
 
-    const responseFinalizar = await fetch(API_BARBER, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nome_cliente: nome,
-        barbeiro,
-        servico,
-        data_servico: data,
-      }),
-    });
+    const responseFinalizar = await fetch(
+      "https://web-barber-production.up.railway.app/servico/finalizar",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome_cliente: nome,
+          barbeiro,
+          servico,
+          data_servico: data,
+        }),
+      }
+    );
     if (!responseFinalizar.ok) {
       const data = await responseFinalizar.json();
       throw new Error(data.message || "Erro ao registrar serviço.");
@@ -65,12 +70,12 @@ export function useBuscarHorariosIndisponiveis() {
   useEffect(() => {
     async function buscarHorariosIndisponiveis() {
       if (data && barbeiro) {
-        const API_BARBERHOUR = `web-barber-production.up.railway.appagendamentos?data=${data}&barbeiro=${encodeURIComponent(
-          barbeiro
-        )}`;
-
         try {
-          const res = await fetch(API_BARBERHOUR);
+          const res = await fetch(
+            `https://web-barber-production.up.railway.app/agendamentos?data=${data}&barbeiro=${encodeURIComponent(
+              barbeiro
+            )}`
+          );
           const json = await res.json();
           setHorariosIndisponiveis(json.horariosIndisponiveis || []);
         } catch (err) {
