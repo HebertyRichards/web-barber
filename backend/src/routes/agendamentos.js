@@ -1,9 +1,23 @@
 module.exports = (app) => {
-  const controller = app.controllers.agendamentoController;
-  app.post("/agendar", controller.criarAgendamento);
-  app.get("/agendamentos", controller.listarHorarios);
-  app.delete("/cancelar-agendamento/:id", controller.cancelarAgendamento);
-  app.post("/servico/finalizar", controller.servicoBarbeiro);
-  app.get("/relatorio/barbeiro:nome", controller.barbeiroServico);
-  app.get("/relatorio/todos", controller.servicoBarbeiroTodos);
+  const {
+    agendamentoController,
+    barbeiroController,
+    cancelarAgendamentoController,
+    horariosController,
+    relatorioAllController,
+    relatorioBarberController,
+  } = app.controllers;
+
+  app.post("/agendar", agendamentoController.criarAgendamento);
+  app.get("/agendamentos", horariosController.listarHorarios);
+  app.delete(
+    "/cancelar-agendamento/:id",
+    cancelarAgendamentoController.cancelarAgendamento
+  );
+  app.post("/servico/finalizar", barbeiroController.servicoBarbeiro);
+  app.get(
+    "/relatorio/barbeiro/:nome",
+    relatorioBarberController.barbeiroServico
+  );
+  app.get("/relatorio/todos", relatorioAllController.servicoBarbeiroTodos);
 };
