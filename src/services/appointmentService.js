@@ -21,10 +21,11 @@ export async function enviarAgendamento({
   };
 
   const API_BASE = "https://web-barber-production.up.railway.app/agendar";
-  const API_BARBER = "https://web-barber-production.up.railway.app/servico/finalizar";
+  const API_BARBER =
+    "https://web-barber-production.up.railway.app/servico/finalizar";
 
   try {
-    const response = await fetch(`${API_BASE}/agendar`, {
+    const response = await fetch(API_BASE, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(agendamento),
@@ -45,7 +46,7 @@ export async function enviarAgendamento({
         data_servico: data,
       }),
     });
-    if (!responseFinalizar) {
+    if (!responseFinalizar.ok) {
       const data = await responseFinalizar.json();
       throw new Error(data.message || "Erro ao registrar serviço.");
     }
