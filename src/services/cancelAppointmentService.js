@@ -2,7 +2,7 @@ export async function CancelAppoint(idAgendamento) {
   if (!idAgendamento) {
     throw new Error("Por favor, informe o ID do agendamento");
   }
-  const API_CANCEL = `https://localhost:8080/cancelar-agendamento/${idAgendamento}`;
+  const API_CANCEL = `https://web-barber-production.up.railway.app/cancelar-agendamento/${idAgendamento}`;
   try {
     const response = await fetch(API_CANCEL, {
       method: "DELETE",
