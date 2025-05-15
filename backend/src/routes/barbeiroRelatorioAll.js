@@ -1,9 +1,9 @@
 module.exports = (app) => {
   const { relatorioAllController } = app.controllers;
   if (!relatorioAllController) {
-    console.error("❌ agendamentoController não carregado!");
+    console.error("❌ arelatorioAllController não carregado!");
   } else {
-    console.log("✅ agendamentoController carregado com sucesso.");
+    console.log("✅ relatorioAllController carregado com sucesso.");
   }
   app.get("/relatorio/todos", relatorioAllController.servicoBarbeiroTodos);
 };

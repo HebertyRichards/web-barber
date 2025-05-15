@@ -2,9 +2,9 @@ module.exports = (app) => {
   const { horariosController } = app.controllers;
 
   if (!horariosController) {
-    console.error("❌ agendamentoController não carregado!");
+    console.error("❌ horariosController não carregado!");
   } else {
-    console.log("✅ agendamentoController carregado com sucesso.");
+    console.log("✅ horariosController carregado com sucesso.");
   }
   app.get("/agendamentos", horariosController.listarHorarios);
 };

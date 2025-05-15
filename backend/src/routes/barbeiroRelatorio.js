@@ -1,9 +1,9 @@
 module.exports = (app) => {
   const { relatorioBarberController } = app.controllers;
   if (!relatorioBarberController) {
-    console.error("❌ agendamentoController não carregado!");
+    console.error("❌ relatorioBarberController não carregado!");
   } else {
-    console.log("✅ agendamentoController carregado com sucesso.");
+    console.log("✅ relatorioBarberController carregado com sucesso.");
   }
   app.get(
     "/relatorio/barbeiro/:nome",

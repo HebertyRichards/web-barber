@@ -1,9 +1,9 @@
 module.exports = (app) => {
   const { barbeiroController } = app.controllers;
   if (!barbeiroController) {
-    console.error("❌ agendamentoController não carregado!");
+    console.error("❌ barbeiroController não carregado!");
   } else {
-    console.log("✅ agendamentoController carregado com sucesso.");
+    console.log("✅ barbeiroController carregado com sucesso.");
   }
 
   app.post("/servico/finalizar", barbeiroController.servicoBarbeiro);
