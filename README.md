@@ -79,8 +79,8 @@ src/
 ├── controllers/       # Lógica dos endpoints da API
 ├── middleware/        # Middlewares personalizados
 ├── routes/            # Definição das rotas da API
-├── services/          # Lógicas externas reutilizáveis (e-mail, etc.)
-├── .env               # Variáveis de ambiente (não versionado)
+├── services/          # Lógicas externas reutilizáveis
+├── .env               # Variáveis de ambiente
 ├── index.js           # Ponto de entrada da aplicação Express
 ```
 
