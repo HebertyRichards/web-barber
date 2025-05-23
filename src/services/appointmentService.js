@@ -21,16 +21,13 @@ export async function enviarAgendamento({
   };
 
   try {
-    const response = await fetch(
-      "https://web-barber-production.up.railway.app/agendar",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(agendamento),
-      }
-    );
+    const response = await fetch("https://web-barber.onrender.com/agendar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(agendamento),
+    });
 
     if (!response.ok) {
       const text = await response.text();
@@ -41,7 +38,7 @@ export async function enviarAgendamento({
     }
 
     const responseFinalizar = await fetch(
-      "https://web-barber-production.up.railway.app/servico/finalizar",
+      "https://web-barber.onrender.com/servico/finalizar",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -72,7 +69,7 @@ export function useBuscarHorariosIndisponiveis() {
       if (data && barbeiro) {
         try {
           const res = await fetch(
-            `https://web-barber-production.up.railway.app/agendamentos?data=${data}&barbeiro=${encodeURIComponent(
+            `https://web-barber.onrender.com/agendamentos?data=${data}&barbeiro=${encodeURIComponent(
               barbeiro
             )}`
           );

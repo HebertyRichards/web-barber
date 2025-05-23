@@ -49,6 +49,7 @@ Desenvolver uma solução inovadora para **agendamento online de serviços em ba
 
 - Hospedagem Front-End na Vercel e Back-end na Railway 
 - Deploy: https://web-barber-phi.vercel.app/
+<<<<<<< HEAD
 - Painel Administrativo: https://github.com/HebertyRichards/painel-web-barber
   
 ---
@@ -85,3 +86,4 @@ src/
 ```
 
 ---
+=======

@@ -4,7 +4,7 @@ export async function CancelAppoint(idAgendamento) {
   }
   try {
     const response = await fetch(
-      `https://web-barber-production.up.railway.app/cancelar-agendamento/${idAgendamento}`,
+      `https://web-barber.onrender.com/cancelar-agendamento/${idAgendamento}`,
       {
         method: "DELETE",
       }
