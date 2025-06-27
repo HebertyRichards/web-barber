@@ -19,10 +19,9 @@ function Assinatura() {
       <div
         className="bg-no-repeat bg-cover p-10"
         style={{
-          backgroundImage: `linear-gradient(to right, rgb(0,0,0) 0%, rgba(255,126,95,0) 100%), url('/1.png')`,
+          backgroundImage: `linear-gradient(to right, rgb(0,0,0) 0%, rgba(255,126,95,0) 100%), url('/1.webp')`,
         }}
       ></div>
-
       <div className="text-center text-white my-8 px-4">
         <h2
           className="text-[1.0rem] font-bold mt-[3%] lg:text-[1.5rem] xl:text-[2rem]"

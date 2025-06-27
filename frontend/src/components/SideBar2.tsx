@@ -26,7 +26,7 @@ function SideBar2() {
           <img
             src="/icon.webp"
             alt="icon"
-            className="object-contain w-[50px] h-[50px]"
+            className="w-[50px] aspect-square object-contain"
           ></img>
           <Link
             className="text-white no-underline ml-[50px] text-[14px] lg:text-[1.5em] cursor-pointer no-underline mt-2"

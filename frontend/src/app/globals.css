@@ -30,6 +30,7 @@ body {
   src: url('../fonts/CaviarDreams.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -37,6 +38,7 @@ body {
   src: url('../fonts/Impact.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 input[type=number]::-webkit-outer-spin-button,

@@ -68,7 +68,7 @@ function Agendamento() {
       <div
         className="bg-no-repeat bg-cover p-10"
         style={{
-          backgroundImage: `linear-gradient(to right, rgb(0,0,0) 0%, rgba(255,126,95,0) 100%), url('/1.png')`,
+          backgroundImage: `linear-gradient(to right, rgb(0,0,0) 0%, rgba(255,126,95,0) 100%), url('/1.webp')`,
         }}
       ></div>
       <div className="bg-[#2c2c2c] text-white p-5 md:mx-auto">

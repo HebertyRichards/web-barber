@@ -39,7 +39,7 @@ function Servicos() {
             <img
               src={item.imagem}
               alt={item.servico}
-              className="object-contain w-[200px] h-[200px] shadow-[0_4px_8px_rgba(255,255,255,0.8)]"
+              className="w-[80%] max-w-[200px] aspect-square object-contain shadow-[0_4px_8px_rgba(255,255,255,0.8)]"
             ></img>
             <h2 className="text-white text-2xl mb-4 font-bold mt-4">
               {item.servico}

@@ -69,10 +69,14 @@ function Depoiments() {
           <SwiperSlide key={depoimento.id}>
             <div className="border border-[#f4f4f4] bg-[#1e1e1e] p-5 rounded-lg w-[80%] mx-auto mb-4 shadow-md text-left md:p-2 md:w-[70%]">
               <img
-                src={depoimento.imagem}
+                src={`${
+                  depoimento.imagem.split("?")[0]
+                }?w=100&h=100&fit=crop&auto=format&q=60`}
                 alt={`Foto de ${depoimento.cliente}`}
                 className="object-contain w-[50px] h-[50px] rounded-full object-cover mb-2"
+                loading="lazy"
               />
+
               <h2
                 className="text-2xl mb-4"
                 style={{ fontFamily: "ImpactCustom, sans-serif" }}

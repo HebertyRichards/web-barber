@@ -32,24 +32,24 @@ function Footer() {
               <img
                 src="/mapa.webp"
                 alt="Endereço"
-                className="w-[25px] h-auto mr-[10px]"
-              />
+                className="w-[25px] aspect-square mr-[10px] object-contain"
+                />
               São mateus - São Paulo
             </div>
             <div className="text-white text-left flex items-center mb-1">
               <img
                 src="/whatsapp.webp"
                 alt="WhatsApp"
-                className="w-[25px] h-auto mr-[10px]"
-              />
+                className="w-[25px] aspect-square mr-[10px] object-contain"
+                />
               WhatsApp: (11) 00000-0000
             </div>
             <div className="text-white text-left flex items-center">
               <img
                 src="/msg2.webp"
                 alt="Email"
-                className="w-[25px] h-auto mr-[10px]"
-              />
+                className="w-[25px] aspect-square mr-[10px] object-contain"
+                />
               ramosbarbearia@gmail.com
             </div>
           </div>
@@ -63,7 +63,7 @@ function Footer() {
             <div className="flex flex-row">
               <Link
                 aria-label="Acesse Nosso Facebook"
-                className="object-contain w-[30px] h-[30px] bg-[url('/Facebook.webp')] bg-contain bg-no-repeat rounded border-none mx-2"
+                className="w-[30px] aspect-square bg-[url('/Facebook.webp')] bg-contain bg-no-repeat rounded border-none mx-2"
                 href="#"
               ></Link>
               <Link

@@ -17,12 +17,12 @@ const MainProduct = () => {
     <>
       <div className="bg-[antiquewhite] text-black mx-auto text-center p-5">
         <h2
-          className="text-[1.0rem] font-bold mt-[3%] lg:text-[1.5rem] xl:text-[2rem]"
+          className="text-[1.0rem] font-bold lg:text-[1.5rem] xl:text-[2rem]"
           style={{ fontFamily: "ImpactCustom, sans-serif" }}
         >
           SOBRE NÓS
         </h2>
-        <p className="text-2xl w-[90%] mx-auto md:w-[30%] md:text-base">
+        <p className="text-2xl w-[90%] mx-auto mt-[3%] md:w-[30%] md:text-base">
           A Barbearia Ramos é uma empresa que une tradição e inovação para
           facilitar o dia a dia dos nossos clientes. Oferecemos um sistema de
           agendamento online rápido e prático, Nosso objetivo é proporcionar
