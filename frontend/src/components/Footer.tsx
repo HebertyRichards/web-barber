@@ -11,6 +11,7 @@ function Footer() {
               href="/"
               className="text-[1.2rem] font-bold lg:text-[1.8rem] xl:text-[2.5rem]"
               style={{ fontFamily: "ImpactCustom, sans-serif" }}
+              aria-label="Início"
             >
               Barbearia Ramos
             </Link>
@@ -29,30 +30,30 @@ function Footer() {
             </h2>
             <div className="text-white text-left flex items-center mb-1">
               <img
-                src="/mapa.png"
+                src="/mapa.webp"
                 alt="Endereço"
-                className="w-[25px] h-[25px] mr-[10px]"
+                className="w-[25px] h-auto mr-[10px]"
               />
               São mateus - São Paulo
             </div>
             <div className="text-white text-left flex items-center mb-1">
               <img
-                src="/whatsapp.png"
+                src="/whatsapp.webp"
                 alt="WhatsApp"
-                className="w-[25px] h-[25px] mr-[10px]"
+                className="w-[25px] h-auto mr-[10px]"
               />
               WhatsApp: (11) 00000-0000
             </div>
             <div className="text-white text-left flex items-center">
               <img
-                src="/msg2.png"
+                src="/msg2.webp"
                 alt="Email"
-                className="w-[25px] h-[25px] mr-[10px]"
+                className="w-[25px] h-auto mr-[10px]"
               />
               ramosbarbearia@gmail.com
             </div>
           </div>
-          <div className="w-full sm:w-1/5 flex flex-col items-center md:ml-[5%]">
+          <div className="w-full md:w-1/5 flex flex-col items-center ml-[5%]">
             <h2
               className="text-[1.0rem] font-bold lg:text-[1.5rem] xl:text-[2rem]"
               style={{ fontFamily: "ImpactCustom, sans-serif" }}
@@ -61,13 +62,13 @@ function Footer() {
             </h2>
             <div className="flex flex-row">
               <Link
-                className="w-[30px] h-[30px] bg-[url('/Facebook.png')] bg-contain bg-no-repeat rounded border-none mx-2"
-                id="facebook"
+                aria-label="Acesse Nosso Facebook"
+                className="object-contain w-[30px] h-[30px] bg-[url('/Facebook.webp')] bg-contain bg-no-repeat rounded border-none mx-2"
                 href="#"
               ></Link>
               <Link
-                className="w-[30px] h-[30px] bg-[url('/Instagram.png')] bg-contain bg-no-repeat rounded border-none mx-2"
-                id="instagram"
+                aria-label="Acesse nosso Instagram"
+                className="object-contain w-[30px] h-[30px] bg-[url('/instagram.webp')] bg-contain bg-no-repeat rounded border-none mx-2"
                 href="#"
               ></Link>
             </div>

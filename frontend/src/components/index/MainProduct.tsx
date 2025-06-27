@@ -22,7 +22,7 @@ const MainProduct = () => {
         >
           SOBRE NÓS
         </h2>
-        <p className="text-2xl w-[90%] mx-auto md:w-[30%] sm:text-base">
+        <p className="text-2xl w-[90%] mx-auto md:w-[30%] md:text-base">
           A Barbearia Ramos é uma empresa que une tradição e inovação para
           facilitar o dia a dia dos nossos clientes. Oferecemos um sistema de
           agendamento online rápido e prático, Nosso objetivo é proporcionar
@@ -64,14 +64,14 @@ const MainProduct = () => {
               <img
                 src={item.imagem}
                 alt={item.servico}
-                className="mx-auto w-[200px] h-[200px]"
+                className="object-contain mx-auto w-[200px] h-[200px]"
               />
               <h2 className="text-[2.5em] font-bold mt-5 md:text-[1.5em]">
                 {item.servico}
               </h2>
               <p className="text-lg mt-5 md:text-base">{item.preco}</p>
               <Link
-                className="block mx-auto bg-yellow-400 text-white py-5 px-6 rounded-full w-1/2 cursor-pointer transition-colors duration-300 no-underline text-center font-bold hover:bg-yellow-500 mt-5"
+                className="block mx-auto bg-yellow-600 text-white py-5 px-6 rounded-full w-1/2 cursor-pointer transition-colors duration-300 no-underline text-center font-bold hover:bg-yellow-500 mt-5"
                 href="/agendamento"
               >
                 Agendar
@@ -80,10 +80,16 @@ const MainProduct = () => {
           </SwiperSlide>
         ))}
         <div className="flex justify-center w-full z-10 py-4">
-          <button className="btn-prev transition-colors duration-300 text-white bg-black/50 mx-2 rounded-full mt-2 w-10 h-10 hover:bg-white/80 cursor-pointer">
+          <button
+            aria-label="Slide Anterior"
+            className="btn-prev transition-colors duration-300 text-white bg-black/50 mx-2 rounded-full mt-2 w-10 h-10 hover:bg-white/80 cursor-pointer"
+          >
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
-          <button className="btn-next transition-colors duration-300 text-white bg-black/50 mx-2 rounded-full mt-2 w-10 h-10 hover:bg-white/80 cursor-pointer">
+          <button
+            aria-label="Próximo Slide"
+            className="btn-next transition-colors duration-300 text-white bg-black/50 mx-2 rounded-full mt-2 w-10 h-10 hover:bg-white/80 cursor-pointer"
+          >
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>

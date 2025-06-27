@@ -87,6 +87,12 @@ function Agendamento() {
             className="bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] w-full md:w-[50%] px-2"
             onSubmit={handleSubmit}
           >
+            <label
+              htmlFor="telefone"
+              className="text-white ml-[20px] block font-bold"
+            >
+              Telefone
+            </label>
             <input
               type="tel"
               id="telefone"
@@ -96,6 +102,12 @@ function Agendamento() {
               onChange={(e) => setTelefone(formatarTel(e.target.value))}
               className="w-full mt-4 border-b border-[whitesmoke] bg-transparent text-white placeholder:text-[#9e9e9e] placeholder:font-bold py-2.5 px-5 mb-5 focus:outline-none"
             />
+            <label
+              htmlFor="text"
+              className="text-white ml-[20px] block font-bold"
+            >
+              Nome
+            </label>
             <input
               type="text"
               id="nome"
@@ -106,16 +118,28 @@ function Agendamento() {
               onChange={(e) => setNome(e.target.value)}
               className="w-full border-b border-[whitesmoke] bg-transparent text-white placeholder:text-[#9e9e9e] placeholder:font-bold py-2.5 px-5 mb-5 focus:outline-none"
             />
+            <label
+              htmlFor="email"
+              className="text-white ml-[20px] block font-bold"
+            >
+              E-mail
+            </label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Seu Email"
+              placeholder="Seu E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border-b border-[whitesmoke] bg-transparent text-white placeholder:text-[#9e9e9e] placeholder:font-bold py-2.5 px-5 mb-5 focus:outline-none"
             />
-            <div className="flex gap-8 md:gap-2">
+            <div className="flex flex-col justify-center gap-8 md:gap-2">
+              <label
+                htmlFor="data"
+                className="text-white ml-[20px] block font-bold"
+              >
+                Data
+              </label>
               <input
                 type="date"
                 name="data"
@@ -126,6 +150,12 @@ function Agendamento() {
                 className="ml-[20px] my-[10px] p-[10px] bg-[#2f2f2f] text-white border-none shadow-[0_3px_6px_rgba(0,0,0,1)] sm:ml-0"
                 required
               />
+              <label
+                htmlFor="horario"
+                className="text-white ml-[20px] block font-bold"
+              >
+                Horario
+              </label>
               <select
                 id="horario"
                 name="horario"
@@ -143,7 +173,9 @@ function Agendamento() {
               </select>
             </div>
             <div className="m-[10px] w-full">
-              <p>Selecione os serviços:</p>
+              <p className="text-white ml-[20px] block font-bold">
+                Selecione os serviços:
+              </p>
               {[
                 "Corte - R$30,00",
                 "Barba - R$25,00",
@@ -179,6 +211,12 @@ function Agendamento() {
               ))}
             </div>
             <div className="m-[10px] w-full">
+              <label
+                htmlFor="barbeiro"
+                className="text-white ml-[20px] block font-bold"
+              >
+                Barbeiro
+              </label>
               <select
                 id="barbeiro"
                 name="barbeiro"

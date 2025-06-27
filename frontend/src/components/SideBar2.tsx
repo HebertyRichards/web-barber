@@ -23,7 +23,11 @@ function SideBar2() {
         }`}
       >
         <div className="mx-auto flex items-center justify-center px-4 md:px-8 py-4 max-w-7xl">
-          <img src="/icon.png" alt="icon" className="w-[50px] h-[50px]"></img>
+          <img
+            src="/icon.webp"
+            alt="icon"
+            className="object-contain w-[50px] h-[50px]"
+          ></img>
           <Link
             className="text-white no-underline ml-[50px] text-[14px] lg:text-[1.5em] cursor-pointer no-underline mt-2"
             style={{ fontFamily: "'ImpactCustom', sans-serif" }}

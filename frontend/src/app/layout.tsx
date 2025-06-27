@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Barbearia Ramos",
   description: "Barbearia Ramos, a melhor barbearia de São Mateus - São Paulo",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon.webp",
   },
   openGraph: {
     title: "Barbearia Ramos",

@@ -19,7 +19,7 @@ function InfoProds() {
             <img
               src={item.imagem}
               alt={item.produto}
-              className="w-[200px] shadow-[0_4px_8px_rgba(255,255,255,0.8)] md:mt-0 mt-[10%]"
+              className="object-contain w-[200px] h-[200px] shadow-[0_4px_8px_rgba(255,255,255,0.8)] md:mt-0 mt-[10%]"
             />
             <h2 className="text-white text-2xl mb-4 font-bold mt-4">
               {item.produto}
@@ -30,8 +30,8 @@ function InfoProds() {
             <Link
               href="https://bit.ly/3EWrNiw"
               target="_blank"
-              className="bg-yellow-400 px-5 py-5 text-white rounded-[30px] font-bold mt-4 cursor-pointer no-underline transition-colors duration-400 hover:bg-yellow-500"
-            >
+              className="block mx-auto bg-yellow-600 text-white py-5 px-6 rounded-full w-1/2 cursor-pointer transition-colors duration-300 no-underline text-center font-bold hover:bg-yellow-500 mt-5"
+              >
               Comprar Agora
             </Link>
           </div>

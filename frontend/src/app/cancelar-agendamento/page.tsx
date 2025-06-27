@@ -33,7 +33,7 @@ function CancelarAgendamento() {
       <div
         className="bg-no-repeat bg-cover p-10"
         style={{
-          backgroundImage: `linear-gradient(to right, rgb(0,0,0) 0%, rgba(255,126,95,0) 100%), url('/1.png')`,
+          backgroundImage: `linear-gradient(to right, rgb(0,0,0) 0%, rgba(255,126,95,0) 100%), url('/1.webp')`,
         }}
       ></div>
       <div className="bg-[#2c2c2c] text-white p-5 sm:mx-auto">
@@ -48,6 +48,12 @@ function CancelarAgendamento() {
             className="flex flex-col items-center mx-auto bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] px-5 py-2.5 mt-[2%] md:py-1 sm:w-full px-2"
             onSubmit={handleCancel}
           >
+            <label
+              htmlFor="id"
+              className="text-white ml-[20px] block font-bold"
+            >
+              ID
+            </label>
             <input
               type="number"
               name="id"

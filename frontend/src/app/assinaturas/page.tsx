@@ -44,15 +44,15 @@ function Assinatura() {
 
           switch (plano.classe) {
             case "bronze":
-              bgColor = "bg-[#5b2c06]";
+              bgColor = "bg-[#5b2c06] hover:bg-[#7a3e0a]";
               textColor = "text-white";
               break;
             case "silver":
-              bgColor = "bg-gray-300";
+              bgColor = "bg-gray-300 hover:bg-gray-400";
               textColor = "text-black";
               break;
             case "gold":
-              bgColor = "bg-[#f6d300]";
+              bgColor = "bg-[#f6d300] hover:bg-yellow-400";
               textColor = "text-black";
               break;
             default:

@@ -1,49 +1,49 @@
 [
   {
     "id": 1,
-    "imagem": "/gel.png",
+    "imagem": "/gel.webp",
     "produto": "Gel",
     "preco": "R$10,00"
   },
   {
     "id": 2,
-    "imagem": "/creme-cacho.png",
+    "imagem": "/creme-cacho.webp",
     "produto": "Creme Cachear",
     "preco": "R$25,00"
   },
   {
     "id": 3,
-    "imagem": "/pomada-modeladora.png",
+    "imagem": "/pomada-modeladora.webp",
     "produto": "Pomada Modeladora",
     "preco": "R$20,00"
   },
   {
     "id": 4,
-    "imagem": "/locao-barba.png",
+    "imagem": "/locao-barba.webp",
     "produto": "Loção Barba",
     "preco": "R$30,00"
   },
   {
     "id": 5,
-    "imagem": "/creme-pentear.png",
+    "imagem": "/creme-pentear.webp",
     "produto": "Creme Pentear",
     "preco": "R$20,00"
   },
   {
     "id": 6,
-    "imagem": "/laque.png",
+    "imagem": "/laque.webp",
     "produto": "Laque Spray",
     "preco": "R$30,00"
   },
   {
     "id": 7,
-    "imagem": "/shampoo.png",
+    "imagem": "/shampoo.webp",
     "produto": "Shampoo",
     "preco": "R$20,00"
   },
   {
     "id": 8,
-    "imagem": "/esponja.png",
+    "imagem": "/esponja.webp",
     "produto": "Esponja ",
     "preco": "R$15,00"
   }

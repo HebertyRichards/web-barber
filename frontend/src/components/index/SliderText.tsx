@@ -26,7 +26,6 @@ const Text = () => {
         disableOnInteraction: false,
       }}
     >
-      {" "}
       <SwiperSlide>
         <section className="text-white shadow-[0_4px_8px_rgba(0,0,0,0.7)] mx-auto w-[90%] md:w-[80%] lg:w-[60%] p-5 mt-[10%]">
           <h2
@@ -39,7 +38,7 @@ const Text = () => {
             Cortes modernos, clássicos ou personalizados com acabamento
             impecável. Estilo e cuidado com quem entende do assunto.
           </p>
-          <button className="text-white bg-[#ffbb00] rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-transparent hover:text-[#f5bd25] hover:border hover:border-[#f5bd25]">
+          <button className="text-white bg-yellow-600 rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-yellow-500 hover:border hover:border-[#f5bd25]">
             Contate-nos
           </button>
         </section>
@@ -56,7 +55,7 @@ const Text = () => {
             Barba feita com precisão e conforto. Higienização, hidratação e
             modelagem para valorizar seu visual.
           </p>
-          <button className="text-white bg-[#ffbb00] rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-transparent hover:text-[#f5bd25] hover:border hover:border-[#f5bd25]">
+          <button className="text-white bg-yellow-600 rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-yellow-500 hover:border hover:border-[#f5bd25]">
             Contate-nos
           </button>
         </section>
@@ -73,7 +72,7 @@ const Text = () => {
             Transforme seu estilo com Mega Hair de alta qualidade. Volume,
             comprimento e naturalidade em cada aplicação.
           </p>
-          <button className="text-white bg-[#ffbb00] rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-transparent hover:text-[#f5bd25] hover:border hover:border-[#f5bd25]">
+          <button className="text-white bg-yellow-600 rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-yellow-500 hover:border hover:border-[#f5bd25]">
             Contate-nos
           </button>
         </section>
@@ -90,7 +89,7 @@ const Text = () => {
             Recupere a saúde dos seus fios com hidratação profunda. Cabelos mais
             fortes, macios e com brilho natural.o.
           </p>
-          <button className="text-white bg-[#ffbb00] rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-transparent hover:text-[#f5bd25] hover:border hover:border-[#f5bd25]">
+          <button className="text-white bg-yellow-600 rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-yellow-500 hover:border hover:border-[#f5bd25]">
             Contate-nos
           </button>
         </section>
@@ -107,16 +106,22 @@ const Text = () => {
             Renove o visual com coloração ou luzes modernas. Estilo,
             personalidade e cuidado com cada detalhe.
           </p>
-          <button className="text-white bg-[#ffbb00] rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-transparent hover:text-[#f5bd25] hover:border hover:border-[#f5bd25]">
+          <button className="text-white bg-yellow-600 rounded-full border-none cursor-pointer px-6 py-3 font-bold transition-colors duration-400 hover:bg-yellow-500 hover:border hover:border-[#f5bd25]">
             Contate-nos
           </button>
         </section>
       </SwiperSlide>
       <section className="mx-auto w-[30%] p-2">
-        <button className="custom-prev bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80">
+        <button
+          aria-label="Slide Anterior"
+          className="custom-prev bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80"
+        >
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
-        <button className="custom-next bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80">
+        <button
+          aria-label="Proximo Slide"
+          className="custom-next bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80"
+        >
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
       </section>

@@ -1,49 +1,49 @@
 [
   {
     "id": 6,
-    "imagem": "/corte1.png",
+    "imagem": "/corte1.webp",
     "servico": "Corte",
     "preco": "R$30,00"
   },
   {
     "id": 7,
-    "imagem": "/barba.png",
+    "imagem": "/barba.webp",
     "servico": "Barba",
     "preco": "R$25,00"
   },
   {
     "id": 8,
-    "imagem": "/bigode.png",
+    "imagem": "/bigode.webp",
     "servico": "Bigode",
     "preco": "R$10,00"
   },
   {
     "id": 9,
-    "imagem": "/careca.png",
+    "imagem": "/careca.webp",
     "servico": "Máquina Geral",
     "preco": "R$20,00"
   },
   {
     "id": 10,
-    "imagem": "/corte-barba.png",
+    "imagem": "/corte-barba.webp",
     "servico": "Corte + Barba",
     "preco": "R$50,00"
   },
   {
     "id": 11,
-    "imagem": "/penteado.png",
+    "imagem": "/penteado.webp",
     "servico": "Penteado",
     "preco": "R$20,00"
   },
   {
     "id": 12,
-    "imagem": "/luzes.png",
+    "imagem": "/luzes.webp",
     "servico": "Luzes",
     "preco": "R$70,00"
   },
   {
     "id": 13,
-    "imagem": "/hidratacao.png",
+    "imagem": "/hidratacao.webp",
     "servico": "Hidratação",
     "preco": "R$15,00"
   }

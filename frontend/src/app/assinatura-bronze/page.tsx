@@ -51,7 +51,7 @@ function AssinaturaPrata() {
                   <td className="py-4">
                     <Link
                       href="#"
-                      className="bg-[#5b2c06] text-white mt-auto inline-block font-semibold px-4 py-2"
+                      className="bg-[#5b2c06] text-white mt-auto inline-block font-semibold px-4 py-2 hover:bg-[#7a3e0a]"
                     >
                       Assinar
                     </Link>

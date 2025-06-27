@@ -21,7 +21,7 @@ function Depoiments() {
   }, []);
 
   return (
-    <div className="px-5 py-5 text-center w-[90%] mx-auto bg-[#101010] mt-[5%] rounded-[20px]">
+    <section className="px-5 py-5 text-center w-[90%] mx-auto bg-[#101010] mt-[5%] rounded-[20px]">
       <h2
         className="text-[1.0rem] font-bold mt-[3%] lg:text-[1.5rem] xl:text-[2rem]"
         style={{ fontFamily: "ImpactCustom, sans-serif" }}
@@ -67,11 +67,11 @@ function Depoiments() {
       >
         {clientes.map((depoimento) => (
           <SwiperSlide key={depoimento.id}>
-            <div className="border border-[#f4f4f4] bg-[#2e2e2e] p-5 rounded-lg w-[80%] mx-auto mb-4 shadow-md text-left md:p-2 md:w-[70%]">
+            <div className="border border-[#f4f4f4] bg-[#1e1e1e] p-5 rounded-lg w-[80%] mx-auto mb-4 shadow-md text-left md:p-2 md:w-[70%]">
               <img
                 src={depoimento.imagem}
                 alt={`Foto de ${depoimento.cliente}`}
-                className="w-[50px] h-[50px] rounded-full object-cover mb-2"
+                className="object-contain w-[50px] h-[50px] rounded-full object-cover mb-2"
               />
               <h2
                 className="text-2xl mb-4"
@@ -84,15 +84,21 @@ function Depoiments() {
           </SwiperSlide>
         ))}
         <div className="swiper-nav-buttons">
-          <button className="btn-prev bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80">
+          <button
+            aria-label="Slide Anterior"
+            className="btn-prev bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80"
+          >
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
-          <button className="btn-next bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80">
+          <button
+            aria-label="Proximo Slide"
+            className="btn-next bg-black/50 text-white border-none p-2 cursor-pointer rounded-full w-10 h-10 transition-colors duration-400 hover:bg-white/80"
+          >
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>
       </Swiper>
-    </div>
+    </section>
   );
 }
 
