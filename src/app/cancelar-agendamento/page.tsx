@@ -37,7 +37,7 @@ function CancelarAgendamento() {
         }}
       ></div>
       <div className="bg-[#2c2c2c] text-white p-5 sm:mx-auto">
-        <div className="flex flex-col items-center mx-auto bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] px-5 py-2.5 md:w-[70%] sm:px-2 py-1">
+        <div className="flex flex-col items-center mx-auto bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] px-5 md:w-[70%] sm:px-2 py-1">
           <h2
             className="text-[1.0rem] font-bold lg:text-[1.5rem] xl:text-[2rem]"
             style={{ fontFamily: "ImpactCustom, sans-serif" }}
@@ -45,7 +45,7 @@ function CancelarAgendamento() {
             Cancelar Agendamento
           </h2>
           <form
-            className="flex flex-col items-center mx-auto bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] px-5 py-2.5 mt-[2%] md:py-1 sm:w-full px-2"
+            className="flex flex-col items-center mx-auto bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] py-2.5 mt-[2%] md:py-1 sm:w-full px-2"
             onSubmit={handleCancel}
           >
             <label

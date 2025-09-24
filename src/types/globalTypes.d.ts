@@ -15,6 +15,7 @@ interface Cliente {
     barbeiro: string;
   }
 
+
   interface Servico {
     id: number;
     imagem: string;

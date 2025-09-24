@@ -72,7 +72,7 @@ function Agendamento() {
         }}
       ></div>
       <div className="bg-[#2c2c2c] text-white p-5 md:mx-auto">
-        <div className="flex flex-col items-center mx-auto bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] px-5 py-2.5 md:w-full px-2 py-1">
+        <div className="flex flex-col items-center mx-auto bg-[#111] rounded-[20px] shadow-[0_3px_6px_rgba(0,0,0,1)] px-5 py-2.5 md:w-full">
           <h2
             className="text-[1.0rem] font-bold mt-[3%] lg:text-[1.5rem] xl:text-[2rem]"
             style={{ fontFamily: "ImpactCustom, sans-serif" }}
